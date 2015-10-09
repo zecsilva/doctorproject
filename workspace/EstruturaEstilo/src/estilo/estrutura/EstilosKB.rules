@@ -1,0 +1,296 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import java.util.*;
+
+public ruleBase EstilosKB
+{
+  
+  rule estiloAtivo 
+  {
+  declarations
+   Estilo e;
+  conditions
+   e.getEstiloNome().equalsIgnoreCase("Ativo");
+  actions
+	  System.out.println(" Ativou a regra para o estilo Ativo");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Video());
+	  recursos.add(new Diagrama());
+	  recursos.add(new Figura());
+	  recursos.add(new Grafico());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Simulacao());
+	  recursos.add(new Esquema());
+	  recursos.add(new PaginaWeb());
+	  recursos.add(new Mapa());
+	  recursos.add(new Exemplo());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Rede"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  
+  }
+  
+  rule estiloReflexivo 
+  {
+  declarations
+     Estilo e;
+  conditions
+     e.getEstiloNome().equalsIgnoreCase("Reflexivo");
+  actions
+      System.out.println(" Ativou a regra para o estilo Reflexivo");
+      OrdemComposicao ordemComposicao = new OrdemComposicao();
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+      ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+      recursos.add(new Palestra());
+      recursos.add(new Diagrama());
+      recursos.add(new Slide());
+      recursos.add(new Grafico());
+      recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Simulacao());
+	  recursos.add(new Esquema());
+	  recursos.add(new PaginaWeb());
+	  recursos.add(new Animacao());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Tabela());
+	  recursos.add(new Demonstracao());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Linear"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  
+  }
+  
+  rule estiloSensorial 
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Sensorial");
+  actions
+  	  System.out.println(" Ativou a regra para o estilo Sensorial");
+      OrdemComposicao ordemComposicao = new OrdemComposicao();
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Introducao"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+      ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+      recursos.add(new Narracao());
+      recursos.add(new Video());
+      recursos.add(new Slide());
+      recursos.add(new Grafico());
+      recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Mapa());
+	  recursos.add(new Questionario());
+	  recursos.add(new PaginaWeb());
+	  recursos.add(new Experimento());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Tabela());
+	  recursos.add(new Demonstracao());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Rede"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+  rule estiloIntuitivo 
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Intuitivo");
+  actions
+  	  System.out.println(" Ativou a regra para o estilo Intuitivo");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Narracao());
+	  recursos.add(new Palestra());
+	  recursos.add(new Figura());
+	  recursos.add(new Grafico());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Simulacao());
+	  recursos.add(new Slide());
+	  recursos.add(new Questionario());
+	  recursos.add(new Animacao());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Foto());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Linear"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+  rule estiloSequencial 
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Sequencial");
+  actions
+  	  System.out.println(" Ativou a regra para o estilo Sequencial");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Narracao());
+	  recursos.add(new Palestra());
+	  recursos.add(new Figura());
+	  recursos.add(new Grafico());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Diagrama());
+	  recursos.add(new Simulacao());
+	  recursos.add(new Slide());
+	  recursos.add(new Questionario());
+	  recursos.add(new Animacao());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Esquema());
+	  recursos.add(new Demonstracao());
+	  recursos.add(new PaginaWeb());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Linear"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+  rule estiloGlobal 
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Global");
+  actions
+      System.out.println(" Ativou a regra para o estilo Global");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Diagrama());
+	  recursos.add(new Experimento());
+	  recursos.add(new Figura());
+	  recursos.add(new Grafico());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Esquema());
+	  recursos.add(new Slide());
+	  recursos.add(new PaginaWeb());
+	  recursos.add(new Mapa());
+	  recursos.add(new Exemplo());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Rede"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+  rule estiloVerbal 
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Verbal");
+  actions
+      System.out.println(" Ativou a regra para o estilo Verbal");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Narracao());
+	  recursos.add(new Palestra());
+	  recursos.add(new Tabela());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Diagrama());
+	  recursos.add(new Slide());
+	  recursos.add(new Questionario());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Demonstracao());
+	  recursos.add(new PaginaWeb());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Linear"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+  rule estiloVisual
+  {
+  declarations
+  	Estilo e;
+  conditions
+  	e.getEstiloNome().equalsIgnoreCase("Visual");
+  actions
+      System.out.println(" Ativou a regra para o estilo Visual");
+	  OrdemComposicao ordemComposicao = new OrdemComposicao();
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
+	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
+	  recursos.add(new Diagrama());
+	  recursos.add(new Experimento());
+	  recursos.add(new Figura());
+	  recursos.add(new Grafico());
+	  recursos.add(new AutoAvaliacao());
+	  recursos.add(new Exercicio());
+	  recursos.add(new Tabela());
+	  recursos.add(new Slide());
+	  recursos.add(new PaginaWeb());
+	  recursos.add(new Mapa());
+	  recursos.add(new Exemplo());
+	  recursos.add(new Simulacao());
+	  recursos.add(new Animacao());
+	  recursos.add(new Foto());
+	  recursos.add(new Demonstracao());
+	  e.setRecursos(recursos);
+	  e.setFormaExploracao(new FormaExploracao("Rede"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemComposicao(ordemComposicao);
+	  modified(e);
+	  flush();
+  }
+  
+}
