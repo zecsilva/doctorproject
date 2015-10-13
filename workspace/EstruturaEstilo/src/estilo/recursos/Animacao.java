@@ -13,7 +13,8 @@ public class Animacao extends RecursoEstilo {
 
 	@Override
 	public String toString() {
-		return "Animacao [toString()=" + super.toString() + "]";
+		return "Animacao";
 	}
 
+	
 }

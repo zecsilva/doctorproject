@@ -19,6 +19,8 @@ public class OrdemDetalhamento
 
 	@Override
 	public String toString() {
-		return "Ordem de Detalhamento=" + nomeOrdemDetalhamento;
+		return "Ordem de Detalhamento = [" + nomeOrdemDetalhamento + "]";
 	}
+
+	
 }

@@ -15,6 +15,6 @@ public class FormaExploracao
 	}
 	@Override
 	public String toString() {
-		return "Forma de Exploração=" + nomeForma;
+		return "Forma de Exploração = [" + nomeForma+ "]";
 	}
 }

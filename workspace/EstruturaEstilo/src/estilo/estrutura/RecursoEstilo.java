@@ -22,7 +22,7 @@ public class RecursoEstilo
 	}
 	@Override
 	public String toString() {
-		return "RecursoEstilo [nomeRecursoEstilo=" + nomeRecursoEstilo + "]";
+		return "nomeRecursoEstilo";
 	}
 	
 }

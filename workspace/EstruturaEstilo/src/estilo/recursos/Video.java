@@ -11,4 +11,9 @@ public class Video extends RecursoEstilo {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Vídeo ";
+	}
+
 }

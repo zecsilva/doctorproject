@@ -91,7 +91,8 @@ public class TelaPrincipalApplet extends JApplet {
 		panelEstilo.add(scrollPane);
 		
 		txtEstilo = new JTextArea();
-		scrollPane.setViewportView(txtEstilo);
+		txtEstilo.setBounds(185, 43, 469, 229);
+		panelEstilo.add(txtEstilo);
 		txtEstilo.setWrapStyleWord(true);
 		txtEstilo.setLineWrap(true);
 		txtEstilo.setFont(new Font("Monospaced", Font.PLAIN, 13));

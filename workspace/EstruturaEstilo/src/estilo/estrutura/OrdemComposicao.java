@@ -34,7 +34,10 @@ public class OrdemComposicao
 
 	@Override
 	public String toString() {
-		return "Ordem de Composicao =" + ordem ;
+		return "Ordem de Composicao = " + ordem;
 	}
+
+	
+	
 }
 

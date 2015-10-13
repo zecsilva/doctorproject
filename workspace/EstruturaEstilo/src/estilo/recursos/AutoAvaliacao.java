@@ -6,7 +6,7 @@ public class AutoAvaliacao extends RecursoEstilo {
 
 	@Override
 	public String toString() {
-		return "AutoAvaliacao [toString()=" + super.toString() + "]";
+		return "Auto-Avaliação";
 	}
 
 }
