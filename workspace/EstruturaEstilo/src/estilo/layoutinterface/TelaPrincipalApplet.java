@@ -26,6 +26,7 @@ import javax.swing.tree.TreePath;
 import estilo.estrutura.Estilo;
 import estilo.estrutura.EstilosKB;
 import estilo.estrutura.EtapaConteudo;
+import estilo.estrutura.SubEtapaConteudo;
 
 public class TelaPrincipalApplet extends JApplet {
 	private JTextField txtNomeEstilo;
@@ -43,8 +44,12 @@ public class TelaPrincipalApplet extends JApplet {
 	private JButton btnOk;
 	private JTextField txtTesteFormaExploracao;
 	private EtapaConteudo etapaConteudoCorrente;
+	private SubEtapaConteudo subEtapaCorrente;
 	private int indiceEtapaConteudoCorrente;
-	private HashMap<EtapaConteudo, DefaultMutableTreeNode> mapEtapa = new HashMap<EtapaConteudo, DefaultMutableTreeNode>();
+	private HashMap<DefaultMutableTreeNode, EtapaConteudo> mapEtapa = new HashMap<DefaultMutableTreeNode, EtapaConteudo>();
+	private HashMap<DefaultMutableTreeNode, SubEtapaConteudo> mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
+
+	protected Estilo estilo;
 	
 	public TelaPrincipalApplet() {
 		getContentPane().setLayout(null);
@@ -72,10 +77,12 @@ public class TelaPrincipalApplet extends JApplet {
 		JButton button = new JButton("Retornar Estilo");
 		button.addActionListener(new ActionListener() {
 
+
+
 			public void actionPerformed(ActionEvent evt) {
 				
-				Estilo e = retornarEstilo();
-				exibirEstilo(e);
+				estilo = retornarEstilo();
+				exibirEstilo(estilo);
 			}
 		});
 		button.setBounds(28, 116, 131, 23);
@@ -87,11 +94,11 @@ public class TelaPrincipalApplet extends JApplet {
 		panelEstilo.add(label);
 		
 		scrollPane = new JScrollPane((Component) null);
-		scrollPane.setBounds(185, 42, 471, 231);
+		scrollPane.setBounds(185, 42, 471, 251);
 		panelEstilo.add(scrollPane);
 		
 		txtEstilo = new JTextArea();
-		txtEstilo.setBounds(185, 43, 469, 229);
+		txtEstilo.setBounds(185, 43, 469, 250);
 		panelEstilo.add(txtEstilo);
 		txtEstilo.setWrapStyleWord(true);
 		txtEstilo.setLineWrap(true);
@@ -108,23 +115,50 @@ public class TelaPrincipalApplet extends JApplet {
 		//panelLayout.add(treeMapaConteudo);
 		
 		btnAvancar = new JButton("Avan\u00E7ar");
-		btnAvancar.setBounds(169, 374, 89, 23);
+		btnAvancar.setBounds(367, 374, 89, 23);
 		panelLayout.add(btnAvancar);
 		
 		btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (subEtapaCorrente == etapaConteudoCorrente.getSubEtapas().get(0)){
+					int n = estilo.getOrdemComposicao().getOrdem().indexOf(etapaConteudoCorrente)-1;
+					etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(n);
+					subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1);
+				}
+				controlarNavegacao(estilo);
+				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
+													+ subEtapaCorrente.toString());
+
+			}
+		});
 		btnVoltar.setBounds(268, 374, 89, 23);
 		panelLayout.add(btnVoltar);
 		
 		btnUltimo = new JButton("\u00DAltimo");
 		btnUltimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(estilo.getOrdemComposicao().getOrdem().size()-1);
+				controlarNavegacao(estilo);
+				subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1);
+				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
+													+ subEtapaCorrente.toString());
+
 			}
 		});
 		btnUltimo.setBounds(460, 374, 89, 23);
 		panelLayout.add(btnUltimo);
 		
 		btnPrimeiro = new JButton("Primeiro");
-		btnPrimeiro.setBounds(367, 374, 89, 23);
+		btnPrimeiro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(0);
+				controlarNavegacao(estilo);
+				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
+													+ subEtapaCorrente.toString());
+			}
+		});
+		btnPrimeiro.setBounds(169, 374, 89, 23);
 		panelLayout.add(btnPrimeiro);
 		
 		panelAreaConteudo = new JPanel();
@@ -133,6 +167,22 @@ public class TelaPrincipalApplet extends JApplet {
 		panelAreaConteudo.setLayout(null);
 		
 		btnOk = new JButton("OK");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (etapaConteudoCorrente == estilo.getOrdemComposicao().getOrdem().get(0) &&
+						subEtapaCorrente == etapaConteudoCorrente.getSubEtapas().get(0)){
+					btnPrimeiro.setEnabled(false);
+					btnVoltar.setEnabled(false);
+					btnAvancar.setEnabled(true);
+					btnUltimo.setEnabled(false);
+				} else {
+					btnPrimeiro.setEnabled(true);
+					btnVoltar.setEnabled(true);
+					btnAvancar.setEnabled(true);
+					btnUltimo.setEnabled(false);					
+				}
+			}
+		});
 		btnOk.setBounds(503, 261, 57, 23);
 		panelAreaConteudo.add(btnOk);
 		
@@ -164,7 +214,7 @@ public class TelaPrincipalApplet extends JApplet {
 	private void controlarNavegacao(Estilo e) {
 		
 		if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Linear")){
-			if (etapaConteudoCorrente == e.getOrdemComposicao().getOrdem().get(0)){
+			if (etapaConteudoCorrente == e.getOrdemComposicao().getOrdem().get(0)){ // se etapa corrente é a primeira
 				btnPrimeiro.setEnabled(false);
 				btnVoltar.setEnabled(false);
 				btnAvancar.setEnabled(false);
@@ -178,12 +228,11 @@ public class TelaPrincipalApplet extends JApplet {
 				
 			}
 			TreePath tp = treeMapaConteudo.getPathForRow(indiceEtapaConteudoCorrente);
-			//treeMapaConteudo.gettree
-			DefaultMutableTreeNode nodo = mapEtapa.get(etapaConteudoCorrente);
+			
+			
 
 			exibirMapaConteudo(e, etapaConteudoCorrente);
-			//nodo.
-			//treeMapaConteudo.expandPath();
+			
 		}
 		
 		else if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Rede")){
@@ -191,30 +240,50 @@ public class TelaPrincipalApplet extends JApplet {
 			btnVoltar.setEnabled(true);
 			btnAvancar.setEnabled(true);
 			btnUltimo.setEnabled(true);
-			treeMapaConteudo.addMouseListener(new MouseAdapter() {
-			      public void mouseClicked(MouseEvent me) {
-			    	  TreePath tp = treeMapaConteudo.getPathForLocation(me.getX(), me.getY());
-			    	    if (tp != null)
-			    	      txtTesteFormaExploracao.setText(tp.toString());
-			    	    else
-			    	      txtTesteFormaExploracao.setText("");
-			        }});
 		}
+
+		treeMapaConteudo.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent me) {
+				TreePath tp = treeMapaConteudo.getPathForLocation(me.getX(), me.getY());
+				if (tp != null){
+					txtTesteFormaExploracao.setText(tp.toString());
+					DefaultMutableTreeNode n = (DefaultMutableTreeNode)tp.getLastPathComponent();
+					if (mapSubEtapa.get(n) != null){ // se clicou em subetapa
+						subEtapaCorrente = mapSubEtapa.get(n); // atribuir subetapa
+						etapaConteudoCorrente = subEtapaCorrente.getEtapaConteudo();
+					} else if (mapEtapa.get(n) != null){ //  se clicou só em etapa
+						etapaConteudoCorrente = mapEtapa.get(n);
+						subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
+					}
+				}
+				else
+					txtTesteFormaExploracao.setText("");
+			}});
 	}
 
 	private void exibirMapaConteudo(Estilo e, EtapaConteudo etapaAtual) {
 		boolean expande = true;
+		mapEtapa = new HashMap<DefaultMutableTreeNode, EtapaConteudo>();
+		mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
 		DefaultMutableTreeNode t1 = new DefaultMutableTreeNode("Estilo : " + e.getEstiloNome());
+		
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
 			//linha de teste
 			if (expande == true) {
-				for (int i = 1; i < 4; i++)
-					nodo.add(new DefaultMutableTreeNode(etapa.toString() + " Teste " + i));				
+				for (int i = 1; i < 4; i++){
+					DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
+					nodo.add(subNodo);
+					SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapaAtual);
+					etapaAtual.getSubEtapas().add(s);
+					mapSubEtapa.put(subNodo, s);
+				}
+				mapEtapa.put(nodo, etapa);
+				subEtapaCorrente = etapaAtual.getSubEtapas().get(0);
 			}
 			if (etapa == etapaAtual) expande = false;
 			t1.add(nodo);
-			mapEtapa.put(etapa, nodo);
+			mapEtapa.put(nodo, etapa);
 		}
 		treeMapaConteudo = new JTree(t1);
 		treeMapaConteudo.setBounds(10, 58, 90, 295);
@@ -224,14 +293,24 @@ public class TelaPrincipalApplet extends JApplet {
 	}
 
 	private void exibirMapaConteudo(Estilo e) {
+		
+		mapEtapa = new HashMap<DefaultMutableTreeNode, EtapaConteudo>();
+		mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
 		DefaultMutableTreeNode t1 = new DefaultMutableTreeNode("Estilo : " + e.getEstiloNome());
+		
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
 			//linha de teste
-			for (int i = 1; i < 4; i++)
-				nodo.add(new DefaultMutableTreeNode(etapa.toString() + " Teste " + i));
+			for (int i = 1; i < 4; i++){
+				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
+				nodo.add(new DefaultMutableTreeNode(subNodo));
+				SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
+				etapa.getSubEtapas().add(s);	
+				mapSubEtapa.put(subNodo, s);
+			}
+			subEtapaCorrente = etapa.getSubEtapas().get(0);
 			t1.add(nodo);
-			mapEtapa.put(etapa, nodo);
+			mapEtapa.put(nodo, etapa);
 		}
 		treeMapaConteudo = new JTree(t1);
 		treeMapaConteudo.setBounds(10, 58, 90, 295);
@@ -252,4 +331,5 @@ public class TelaPrincipalApplet extends JApplet {
 	    
 		return e;
 	}
+
 }
