@@ -94,7 +94,15 @@ public class Estilo
 
 
 
-	
+	public SubEtapaConteudo getSubEtapaByName(String name){
+		for (EtapaConteudo etapa : this.getOrdemComposicao().getOrdem()){
+			for (SubEtapaConteudo subEtapa : etapa.getSubEtapas()){
+				if (subEtapa.getNome().equalsIgnoreCase(name))
+					return subEtapa;
+			}
+		}
+		return null;
+	}
 
 	
 }

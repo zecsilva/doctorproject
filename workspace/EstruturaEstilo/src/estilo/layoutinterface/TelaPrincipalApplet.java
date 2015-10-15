@@ -9,6 +9,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JApplet;
@@ -29,6 +30,11 @@ import estilo.estrutura.EtapaConteudo;
 import estilo.estrutura.SubEtapaConteudo;
 
 public class TelaPrincipalApplet extends JApplet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField txtNomeEstilo;
 	private JLabel label;
 	private JScrollPane scrollPane;
@@ -115,20 +121,38 @@ public class TelaPrincipalApplet extends JApplet {
 		//panelLayout.add(treeMapaConteudo);
 		
 		btnAvancar = new JButton("Avan\u00E7ar");
+		btnAvancar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1))){
+					int n = estilo.getOrdemComposicao().getOrdem().indexOf(etapaConteudoCorrente)+1;
+					etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(n);
+					subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
+				} else {
+					int i = etapaConteudoCorrente.getSubEtapas().indexOf(subEtapaCorrente);
+					subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(i+1);
+				}
+				controlarNavegacao(estilo);
+				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
+
+
+			}
+		});
 		btnAvancar.setBounds(367, 374, 89, 23);
 		panelLayout.add(btnAvancar);
 		
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (subEtapaCorrente == etapaConteudoCorrente.getSubEtapas().get(0)){
+				if (subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(0))){
 					int n = estilo.getOrdemComposicao().getOrdem().indexOf(etapaConteudoCorrente)-1;
 					etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(n);
 					subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1);
+				} else {
+					int i = etapaConteudoCorrente.getSubEtapas().indexOf(subEtapaCorrente);
+					subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(i-1);
 				}
 				controlarNavegacao(estilo);
-				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
-													+ subEtapaCorrente.toString());
+				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
 
 			}
 		});
@@ -139,10 +163,9 @@ public class TelaPrincipalApplet extends JApplet {
 		btnUltimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(estilo.getOrdemComposicao().getOrdem().size()-1);
-				controlarNavegacao(estilo);
 				subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1);
-				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
-													+ subEtapaCorrente.toString());
+				controlarNavegacao(estilo);
+				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
 
 			}
 		});
@@ -153,9 +176,9 @@ public class TelaPrincipalApplet extends JApplet {
 		btnPrimeiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				etapaConteudoCorrente = estilo.getOrdemComposicao().getOrdem().get(0);
+				subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
 				controlarNavegacao(estilo);
-				txtTesteFormaExploracao.setText(etapaConteudoCorrente.toString() 
-													+ subEtapaCorrente.toString());
+				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
 			}
 		});
 		btnPrimeiro.setBounds(169, 374, 89, 23);
@@ -199,8 +222,10 @@ public class TelaPrincipalApplet extends JApplet {
 	protected void exibirEstilo(Estilo e) {
 
 		exibirMapaConteudo(e);
+
 		etapaConteudoCorrente = e.getOrdemComposicao().getOrdem().get(0);
-		indiceEtapaConteudoCorrente = 0;
+		subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
+
 		controlarNavegacao(e);
 		exibirRecursos(e);
 		
@@ -213,8 +238,11 @@ public class TelaPrincipalApplet extends JApplet {
 
 	private void controlarNavegacao(Estilo e) {
 		
+		
 		if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Linear")){
-			if (etapaConteudoCorrente == e.getOrdemComposicao().getOrdem().get(0)){ // se etapa corrente é a primeira
+
+			if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(0)) &&
+					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(0))){ // se etapa corrente é a primeira
 				btnPrimeiro.setEnabled(false);
 				btnVoltar.setEnabled(false);
 				btnAvancar.setEnabled(false);
@@ -227,38 +255,64 @@ public class TelaPrincipalApplet extends JApplet {
 				btnUltimo.setEnabled(false);
 				
 			}
-			TreePath tp = treeMapaConteudo.getPathForRow(indiceEtapaConteudoCorrente);
+			//TreePath tp = treeMapaConteudo.getPathForRow(indiceEtapaConteudoCorrente);
 			
-			
-
 			exibirMapaConteudo(e, etapaConteudoCorrente);
-			
 		}
 		
 		else if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Rede")){
-			btnPrimeiro.setEnabled(true);
-			btnVoltar.setEnabled(true);
-			btnAvancar.setEnabled(true);
-			btnUltimo.setEnabled(true);
+			btnOk.setEnabled(false);
+			if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(0)) &&
+					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(0))){ // se etapa corrente é a primeira
+				btnPrimeiro.setEnabled(true);
+				btnVoltar.setEnabled(false);
+				btnAvancar.setEnabled(true);
+				btnUltimo.setEnabled(true);			
+			} else if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(e.getOrdemComposicao().getOrdem().size()-1)) &&
+					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1))){ // se etapa e subetapa últimas 
+				btnPrimeiro.setEnabled(true);
+				btnVoltar.setEnabled(true);
+				btnAvancar.setEnabled(false);
+				btnUltimo.setEnabled(true);			
+			} else { // nos outros casos
+				btnPrimeiro.setEnabled(true);
+				btnVoltar.setEnabled(true);
+				btnAvancar.setEnabled(true);
+				btnUltimo.setEnabled(true);
+			}
 		}
 
+		
 		treeMapaConteudo.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				TreePath tp = treeMapaConteudo.getPathForLocation(me.getX(), me.getY());
-				if (tp != null){
-					txtTesteFormaExploracao.setText(tp.toString());
-					DefaultMutableTreeNode n = (DefaultMutableTreeNode)tp.getLastPathComponent();
-					if (mapSubEtapa.get(n) != null){ // se clicou em subetapa
-						subEtapaCorrente = mapSubEtapa.get(n); // atribuir subetapa
-						etapaConteudoCorrente = subEtapaCorrente.getEtapaConteudo();
-					} else if (mapEtapa.get(n) != null){ //  se clicou só em etapa
-						etapaConteudoCorrente = mapEtapa.get(n);
-						subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
+				if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Rede")){
+					
+					TreePath tp = treeMapaConteudo.getPathForLocation(me.getX(), me.getY());
+					if (tp != null){
+						//txtTesteFormaExploracao.setText(tp.toString());
+						DefaultMutableTreeNode n = (DefaultMutableTreeNode)tp.getLastPathComponent();
+						if (mapEtapa.get(n) != null){ //  se clicou só em etapa
+							etapaConteudoCorrente = mapEtapa.get(n);
+							subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
+						} else { // se clicou em subetapa
+							String nomeSubEtapa = n.toString();
+							subEtapaCorrente = estilo.getSubEtapaByName(nomeSubEtapa);
+							etapaConteudoCorrente = subEtapaCorrente.getEtapaConteudo();
+						}
+						controlarNavegacao(estilo);
 					}
+					//else
+						//txtTesteFormaExploracao.setText("");
 				}
-				else
-					txtTesteFormaExploracao.setText("");
 			}});
+		
+	
+		//DefaultMutableTreeNode nodo = subEtapaCorrente.getNodo();
+		//treeMapaConteudo.setSelectionPath(new TreePath(nodo.getPath()));
+		//treeMapaConteudo.requestFocusInWindow();
+
+		txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
+
 	}
 
 	private void exibirMapaConteudo(Estilo e, EtapaConteudo etapaAtual) {
@@ -269,18 +323,20 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
-			//linha de teste
-			if (expande == true) {
+			etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
+			//bloco de teste
 				for (int i = 1; i < 4; i++){
-					DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
-					nodo.add(subNodo);
-					SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapaAtual);
-					etapaAtual.getSubEtapas().add(s);
+				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
+					if (expande == true)
+						nodo.add(subNodo);
+					SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
+					etapa.getSubEtapas().add(s);
 					mapSubEtapa.put(subNodo, s);
+					s.setNodo(subNodo);
 				}
 				mapEtapa.put(nodo, etapa);
-				subEtapaCorrente = etapaAtual.getSubEtapas().get(0);
-			}
+				//subEtapaCorrente = etapaAtual.getSubEtapas().get(0);
+			
 			if (etapa == etapaAtual) expande = false;
 			t1.add(nodo);
 			mapEtapa.put(nodo, etapa);
@@ -300,15 +356,17 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
-			//linha de teste
+			etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
+			//bloco de teste
 			for (int i = 1; i < 4; i++){
 				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
 				nodo.add(new DefaultMutableTreeNode(subNodo));
 				SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
 				etapa.getSubEtapas().add(s);	
 				mapSubEtapa.put(subNodo, s);
+				s.setNodo(subNodo);
 			}
-			subEtapaCorrente = etapa.getSubEtapas().get(0);
+			//subEtapaCorrente = etapa.getSubEtapas().get(0);
 			t1.add(nodo);
 			mapEtapa.put(nodo, etapa);
 		}
