@@ -87,7 +87,7 @@ public class Estilo
 
 	@Override
 	public String toString() {
-		return "Estilo = [" + estiloNome + "]" +"\n\nRecursos = " + recursos 
+		return "Estilo = [" + estiloNome + "]" + "\n\nRecursos = " + recursos 
 				+ "\n\n" + formaExploracao + "\n\n" + ordemDetalhamento
 				+ "\n\n" + ordemComposicao ;
 	}

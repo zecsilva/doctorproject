@@ -100,11 +100,11 @@ public class TelaPrincipalApplet extends JApplet {
 		panelEstilo.add(label);
 		
 		scrollPane = new JScrollPane((Component) null);
-		scrollPane.setBounds(185, 42, 471, 251);
+		scrollPane.setBounds(187, 42, 469, 250);
 		panelEstilo.add(scrollPane);
 		
 		txtEstilo = new JTextArea();
-		txtEstilo.setBounds(185, 43, 469, 250);
+		txtEstilo.setBounds(190, 47, 461, 239);
 		panelEstilo.add(txtEstilo);
 		txtEstilo.setWrapStyleWord(true);
 		txtEstilo.setLineWrap(true);
