@@ -185,7 +185,7 @@ public class TelaPrincipalApplet extends JApplet {
 		panelLayout.add(btnPrimeiro);
 		
 		panelAreaConteudo = new JPanel();
-		panelAreaConteudo.setBounds(147, 58, 570, 295);
+		panelAreaConteudo.setBounds(157, 43, 570, 295);
 		panelLayout.add(panelAreaConteudo);
 		panelAreaConteudo.setLayout(null);
 		
@@ -215,7 +215,7 @@ public class TelaPrincipalApplet extends JApplet {
 		txtTesteFormaExploracao.setColumns(10);
 		
 		scrollPaneMapa = new JScrollPane();
-		scrollPaneMapa.setBounds(10, 58, 127, 201);
+		scrollPaneMapa.setBounds(10, 43, 127, 295);
 		panelLayout.add(scrollPaneMapa);
 	}
 	

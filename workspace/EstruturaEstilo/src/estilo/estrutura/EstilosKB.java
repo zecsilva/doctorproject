@@ -1856,7 +1856,7 @@ extends jeops.AbstractRuleBase {
 /**
  * Knowledge base created by JEOPS from file EstilosKB.rules
  *
- * @version 12/10/2015
+ * @version 21/10/2015
  */
 public class EstilosKB extends jeops.AbstractKnowledgeBase {
 
