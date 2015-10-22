@@ -110,7 +110,7 @@ public class TelaPrincipalApplet extends JApplet {
 		txtEstilo.setLineWrap(true);
 		txtEstilo.setFont(new Font("Monospaced", Font.PLAIN, 13));
 
-
+		scrollPane.setViewportView(txtEstilo);
 		
 		panelLayout = new JPanel();
 		tabbedPane.addTab("Exibir Estilo", null, panelLayout, null);
