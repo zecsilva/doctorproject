@@ -16,6 +16,7 @@ public class OrdemComposicao
 	}
 	
 	public OrdemComposicao(String s){
+		nomeOrdemComposicao = s;
 		ordem = new ArrayList<EtapaConteudo>();
 		String[] t = s.split (Pattern.quote ("->"));
 		for (String o: t){
@@ -51,7 +52,7 @@ public class OrdemComposicao
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ordem == null) ? 0 : ordem.hashCode());
+		result = prime * result + ((nomeOrdemComposicao == null) ? 0 : nomeOrdemComposicao.hashCode());
 		return result;
 	}
 
@@ -64,13 +65,15 @@ public class OrdemComposicao
 		if (getClass() != obj.getClass())
 			return false;
 		OrdemComposicao other = (OrdemComposicao) obj;
-		if (ordem == null) {
-			if (other.ordem != null)
+		if (nomeOrdemComposicao == null) {
+			if (other.nomeOrdemComposicao != null)
 				return false;
-		} else if (!ordem.equals(other.ordem))
+		} else if (!nomeOrdemComposicao.equalsIgnoreCase(other.nomeOrdemComposicao))
 			return false;
 		return true;
 	}
+
+	
 
 	
 	
