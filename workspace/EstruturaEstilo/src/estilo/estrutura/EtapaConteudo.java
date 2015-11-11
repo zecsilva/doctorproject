@@ -2,8 +2,17 @@ package estilo.estrutura;
 
 import java.util.ArrayList;
 
+/**
+ * @model
+ */
 public class EtapaConteudo {
+	/**
+	 * @model
+	 */
 private String nome;
+/**
+ * @model containment="true" opposite="etapaConteudo"
+ */
 private ArrayList<SubEtapaConteudo> subEtapas;
 
 

@@ -3,10 +3,19 @@ package estilo.estrutura;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+/**
+ * @model
+ */
 public class OrdemComposicao 
 
 {
+	/**
+	 * @model
+	 */
 	private String nomeOrdemComposicao;
+	/**
+	 * @model
+	 */
     private ArrayList<EtapaConteudo> ordem;
 
 	public OrdemComposicao()

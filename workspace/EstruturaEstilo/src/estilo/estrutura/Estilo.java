@@ -2,13 +2,34 @@ package estilo.estrutura;
 
 import java.util.ArrayList;
 
+/**
+ * @model
+ */
 public class Estilo 
 {
+	/**
+	 * @model
+	 */
 	private String estiloNome;
+	/**
+	 * @model
+	 */
 	private String descricao;
+	/**
+	 * @model
+	 */
     private ArrayList<RecursoEstilo> recursos;
+    /**
+     * @model
+     */
 	private FormaExploracao formaExploracao;
+	/**
+	 * @model
+	 */
 	private OrdemDetalhamento ordemDetalhamento;
+	/**
+	 * @model
+	 */
 	private OrdemComposicao ordemComposicao;
     
 	public Estilo(String nome)

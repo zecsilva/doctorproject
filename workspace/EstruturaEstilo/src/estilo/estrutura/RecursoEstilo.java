@@ -1,8 +1,17 @@
 package estilo.estrutura;
 
+/**
+ * @model
+ */
 public class RecursoEstilo 
 {
+	/**
+	 * @model
+	 */
 	private String nomeRecursoEstilo;
+	/**
+	 * @model
+	 */
 	private String formatoRecurso;
 	/*public RecursoEstilo(String nome)
 	{

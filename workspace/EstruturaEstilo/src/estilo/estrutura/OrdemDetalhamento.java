@@ -1,7 +1,13 @@
 package estilo.estrutura;
 
+/**
+ * @model
+ */
 public class OrdemDetalhamento
 {
+	/**
+	 * @model
+	 */
 	private String nomeOrdemDetalhamento;
 
 	public OrdemDetalhamento(String nome)

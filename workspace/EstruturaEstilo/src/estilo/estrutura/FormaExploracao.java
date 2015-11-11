@@ -1,7 +1,13 @@
 package estilo.estrutura;
 
+/**
+ * @model
+ */
 public class FormaExploracao 
 {
+	/**
+	 * @model
+	 */
 	private String nomeForma;
 	public FormaExploracao(String nome)
 	{
