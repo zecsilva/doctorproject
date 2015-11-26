@@ -105,7 +105,7 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		txtEstilo = new JTextArea();
 		txtEstilo.setBounds(190, 47, 461, 239);
-		panelEstilo.add(txtEstilo);
+		//panelEstilo.add(txtEstilo);
 		txtEstilo.setWrapStyleWord(true);
 		txtEstilo.setLineWrap(true);
 		txtEstilo.setFont(new Font("Monospaced", Font.PLAIN, 13));
@@ -213,6 +213,10 @@ public class TelaPrincipalApplet extends JApplet {
 		txtTesteFormaExploracao.setBounds(102, 262, 371, 20);
 		panelAreaConteudo.add(txtTesteFormaExploracao);
 		txtTesteFormaExploracao.setColumns(10);
+		
+		JLabel lblRecurso = new JLabel("recurso");
+		lblRecurso.setBounds(10, 11, 241, 165);
+		panelAreaConteudo.add(lblRecurso);
 		
 		scrollPaneMapa = new JScrollPane();
 		scrollPaneMapa.setBounds(10, 43, 127, 295);
@@ -389,5 +393,4 @@ public class TelaPrincipalApplet extends JApplet {
 	    
 		return e;
 	}
-
 }
