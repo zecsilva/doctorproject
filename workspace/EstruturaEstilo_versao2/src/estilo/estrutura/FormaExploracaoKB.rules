@@ -1,0 +1,34 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import estilo.util.*;
+import java.util.*;
+
+public ruleBase FormaExploracaoKB
+{
+   rule rede {
+  	
+  	declarations
+  		Estilos estilos;
+  		FormaExploracao formaExploracao;
+  	conditions
+  		formaExploracao.equals(new FormaExploracao("Rede"));
+  	actions
+  		estilos.addItens("Visual,Global,Sensorial,Ativo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule linear {
+  	
+  	declarations
+  		Estilos estilos;
+  		FormaExploracao formaExploracao;
+  	conditions
+  		formaExploracao.equals(new FormaExploracao("Linear"));
+  	actions
+  		estilos.addItens("Verbal,Sequencial,Intuitivo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }   
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="estrutura" nsURI="http:///estilo/estrutura.ecore" nsPrefix="estilo.estrutura">
+  <eClassifiers xsi:type="ecore:EEnum" name="Estilo">
+    <eLiterals name="estiloNome"/>
+    <eLiterals name="descricao" value="1"/>
+    <eLiterals name="recursos" value="2"/>
+    <eLiterals name="formaExploracao" value="3"/>
+    <eLiterals name="ordemDetalhamento" value="4"/>
+    <eLiterals name="ordemComposicao" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EtapaConteudo">
+    <eLiterals name="nome"/>
+    <eLiterals name="subEtapas" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FormaExploracao">
+    <eLiterals name="nomeForma"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OrdemComposicao">
+    <eLiterals name="nomeOrdemComposicao"/>
+    <eLiterals name="ordem" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OrdemDetalhamento">
+    <eLiterals name="nomeOrdemDetalhamento"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RecursoEstilo">
+    <eLiterals name="nomeRecursoEstilo"/>
+    <eLiterals name="formatoRecurso" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SubEtapaConteudo">
+    <eLiterals name="nome"/>
+    <eLiterals name="etapaConteudo" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

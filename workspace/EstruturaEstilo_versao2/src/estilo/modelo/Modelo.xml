@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estilo.modelo.ModeloEA>
+  <nomeModelo>nome modelo</nomeModelo>
+  <descricaoModelo>descrição modelo</descricaoModelo>
+  <autor>
+    <nomeAutor>nome autor</nomeAutor>
+    <descricaoAutor>descrição autor</descricaoAutor>
+  </autor>
+  <dimensao>
+    <nomeDimensao>nome dimensão</nomeDimensao>
+    <descricaoDimensao>descrição dimensão</descricaoDimensao>
+  </dimensao>
+  <formaDeteccao>
+    <nomeForma>descrição detecção</nomeForma>
+    <descricaoForma>nome detecção</descricaoForma>
+    <tipoForma>tipo detecção</tipoForma>
+  </formaDeteccao>
+  <instrumentoInvestigacao>
+    <nomeInstrumento>nome ii</nomeInstrumento>
+    <descricaoInstrumento>descrição ii</descricaoInstrumento>
+  </instrumentoInvestigacao>
+  <estilo>
+    <estiloNome>ativo</estiloNome>
+    <recursos>
+      <estilo.recursos.Video>
+        <nomeRecursoEstilo>Video</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Video>
+      <estilo.recursos.Diagrama>
+        <nomeRecursoEstilo>Diagrama</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Diagrama>
+      <estilo.recursos.Figura>
+        <nomeRecursoEstilo>Figura</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Figura>
+      <estilo.recursos.Grafico>
+        <nomeRecursoEstilo>Grafico</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Grafico>
+      <estilo.recursos.AutoAvaliacao>
+        <nomeRecursoEstilo>AutoAvaliacao</nomeRecursoEstilo>
+        <formatoRecurso>Texto</formatoRecurso>
+      </estilo.recursos.AutoAvaliacao>
+      <estilo.recursos.Exercicio>
+        <nomeRecursoEstilo>Exercicio</nomeRecursoEstilo>
+        <formatoRecurso>Texto</formatoRecurso>
+      </estilo.recursos.Exercicio>
+      <estilo.recursos.Simulacao>
+        <nomeRecursoEstilo>Simulacao</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Simulacao>
+      <estilo.recursos.Esquema>
+        <nomeRecursoEstilo>Esquema</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Esquema>
+      <estilo.recursos.PaginaWeb>
+        <nomeRecursoEstilo>PaginaWeb</nomeRecursoEstilo>
+        <formatoRecurso>Texto</formatoRecurso>
+      </estilo.recursos.PaginaWeb>
+      <estilo.recursos.Mapa>
+        <nomeRecursoEstilo>Mapa</nomeRecursoEstilo>
+        <formatoRecurso>Imagem</formatoRecurso>
+      </estilo.recursos.Mapa>
+      <estilo.recursos.Exemplo>
+        <nomeRecursoEstilo>Exemplo</nomeRecursoEstilo>
+        <formatoRecurso>Texto</formatoRecurso>
+      </estilo.recursos.Exemplo>
+    </recursos>
+    <formaExploracao>
+      <nomeForma>Rede</nomeForma>
+    </formaExploracao>
+    <ordemDetalhamento>
+      <nomeOrdemDetalhamento>Geral-para-Específico</nomeOrdemDetalhamento>
+    </ordemDetalhamento>
+    <ordemComposicao>
+      <ordem>
+        <estilo.estrutura.EtapaConteudo>
+          <elementoComposicao class="estilo.estrutura.elementocomposicao.Introducao">
+            <nome>Introdução</nome>
+            <descricao>Introdução</descricao>
+          </elementoComposicao>
+          <subEtapas/>
+        </estilo.estrutura.EtapaConteudo>
+        <estilo.estrutura.EtapaConteudo>
+          <elementoComposicao class="estilo.estrutura.elementocomposicao.Desenvolvimento">
+            <nome>Desenvolvimento</nome>
+            <descricao>Desenvolvimento</descricao>
+          </elementoComposicao>
+          <subEtapas/>
+        </estilo.estrutura.EtapaConteudo>
+        <estilo.estrutura.EtapaConteudo>
+          <elementoComposicao class="estilo.estrutura.elementocomposicao.Atividade">
+            <nome>Atividade</nome>
+            <descricao>Atividade</descricao>
+          </elementoComposicao>
+          <subEtapas/>
+        </estilo.estrutura.EtapaConteudo>
+        <estilo.estrutura.EtapaConteudo>
+          <elementoComposicao class="estilo.estrutura.elementocomposicao.Avaliacao">
+            <nome>Avaliação</nome>
+            <descricao>Avaliação</descricao>
+          </elementoComposicao>
+          <subEtapas/>
+        </estilo.estrutura.EtapaConteudo>
+        <estilo.estrutura.EtapaConteudo>
+          <elementoComposicao class="estilo.estrutura.elementocomposicao.Resumo">
+            <nome>Resumo</nome>
+            <descricao>Resumo</descricao>
+          </elementoComposicao>
+          <subEtapas/>
+        </estilo.estrutura.EtapaConteudo>
+      </ordem>
+    </ordemComposicao>
+  </estilo>
+</estilo.modelo.ModeloEA>

@@ -1,0 +1,188 @@
+				if (ckAnimacao.isSelected()){
+					int i = 0;
+					try{
+						i = Integer.parseInt(txtAnimacao.getText());
+					} catch (NumberFormatException e){
+						i = 0;
+					} 
+					
+					for (int j = 0; j < i; j++) {
+						RecursoEstilo recurso = new Animacao();
+						RecursosKB recursosKB = new RecursosKB();
+						recursosKB.tell(estilos);
+						recursosKB.tell(recurso);
+						recursosKB.run();
+						System.out.println("após Animação " + j + ": \n" + estilos.toString());						
+					}
+				}
+				
+				if (ckAutoAvaliacao.isSelected()){
+					RecursoEstilo recurso = new AutoAvaliacao();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após AutoAvaliacao: \n" + estilos.toString());
+				}
+
+				if (ckDemonstracao.isSelected()){
+					RecursoEstilo recurso = new Demonstracao();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Demonstracao: \n" + estilos.toString());
+				}
+				
+				if (ckDiagrama.isSelected()){
+					RecursoEstilo recurso = new Diagrama();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Diagrama: \n" + estilos.toString());
+				}
+				
+				if (ckEsquema.isSelected()){
+					RecursoEstilo recurso = new Esquema();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Esquema: \n" + estilos.toString());
+				}
+				
+				if (ckExemplo.isSelected()){
+					RecursoEstilo recurso = new Exemplo();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Exemplo: \n" + estilos.toString());
+				}
+				
+				if (ckExercicio.isSelected()){
+					RecursoEstilo recurso = new Exercicio();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Exercicio: \n" + estilos.toString());
+				}
+				
+				if (ckExperimento.isSelected()){
+					RecursoEstilo recurso = new Experimento();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Experimento: \n" + estilos.toString());
+				}
+				
+				if (ckFigura.isSelected()){
+					RecursoEstilo recurso = new Figura();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Figura: \n" + estilos.toString());
+				}
+				
+				if (ckFoto.isSelected()){
+					RecursoEstilo recurso = new Foto();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Foto: \n" + estilos.toString());
+				}
+				
+				if (ckGrafico.isSelected()){
+					RecursoEstilo recurso = new Grafico();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Grafico: \n" + estilos.toString());
+				}
+				
+				if (ckMapa.isSelected()){
+					RecursoEstilo recurso = new Mapa();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Mapa: \n" + estilos.toString());
+				}
+				
+				if (ckNarracao.isSelected()){
+					RecursoEstilo recurso = new Narracao();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Narracao: \n" + estilos.toString());
+				}
+				
+				if (ckPaginaWeb.isSelected()){
+					RecursoEstilo recurso = new PaginaWeb();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após PaginaWeb: \n" + estilos.toString());
+				}
+				
+				if (ckPalestra.isSelected()){
+					RecursoEstilo recurso = new Palestra();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Palestra: \n" + estilos.toString());
+				}
+				
+				if (ckQuestionario.isSelected()){
+					RecursoEstilo recurso = new Questionario();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Questionario: \n" + estilos.toString());
+				}
+				
+				if (ckSimulacao.isSelected()){
+					RecursoEstilo recurso = new Simulacao();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Simulacao: \n" + estilos.toString());
+				}
+				
+				if (ckSlide.isSelected()){
+					RecursoEstilo recurso = new Slide();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Slide: \n" + estilos.toString());
+				}
+				
+				if (ckTabela.isSelected()){
+					RecursoEstilo recurso = new Tabela();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Tabela: \n" + estilos.toString());
+				}
+				
+				if (ckVideo.isSelected()){
+					RecursoEstilo recurso = new Video();
+					RecursosKB recursosKB = new RecursosKB();
+					recursosKB.tell(estilos);
+					recursosKB.tell(recurso);
+					recursosKB.run();
+					System.out.println("após Video: \n" + estilos.toString());
+				}

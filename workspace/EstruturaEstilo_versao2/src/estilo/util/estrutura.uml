@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_xuZvAIilEeWkgqaStR6EUQ" name="estrutura" URI="http:///estilo/estrutura.ecore">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvAYilEeWkgqaStR6EUQ" name="Estilo">
+      <ownedLiteral xmi:id="_xuZvAoilEeWkgqaStR6EUQ" name="estiloNome"/>
+      <ownedLiteral xmi:id="_xuZvA4ilEeWkgqaStR6EUQ" name="descricao"/>
+      <ownedLiteral xmi:id="_xuZvBIilEeWkgqaStR6EUQ" name="recursos"/>
+      <ownedLiteral xmi:id="_xuZvBYilEeWkgqaStR6EUQ" name="formaExploracao"/>
+      <ownedLiteral xmi:id="_xuZvBoilEeWkgqaStR6EUQ" name="ordemDetalhamento"/>
+      <ownedLiteral xmi:id="_xuZvB4ilEeWkgqaStR6EUQ" name="ordemComposicao"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvCIilEeWkgqaStR6EUQ" name="EtapaConteudo">
+      <ownedLiteral xmi:id="_xuZvCYilEeWkgqaStR6EUQ" name="nome"/>
+      <ownedLiteral xmi:id="_xuZvCoilEeWkgqaStR6EUQ" name="subEtapas"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvC4ilEeWkgqaStR6EUQ" name="FormaExploracao">
+      <ownedLiteral xmi:id="_xuZvDIilEeWkgqaStR6EUQ" name="nomeForma"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvDYilEeWkgqaStR6EUQ" name="OrdemComposicao">
+      <ownedLiteral xmi:id="_xuZvDoilEeWkgqaStR6EUQ" name="nomeOrdemComposicao"/>
+      <ownedLiteral xmi:id="_xuZvD4ilEeWkgqaStR6EUQ" name="ordem"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvEIilEeWkgqaStR6EUQ" name="OrdemDetalhamento">
+      <ownedLiteral xmi:id="_xuZvEYilEeWkgqaStR6EUQ" name="nomeOrdemDetalhamento"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvEoilEeWkgqaStR6EUQ" name="RecursoEstilo">
+      <ownedLiteral xmi:id="_xuZvE4ilEeWkgqaStR6EUQ" name="nomeRecursoEstilo"/>
+      <ownedLiteral xmi:id="_xuZvFIilEeWkgqaStR6EUQ" name="formatoRecurso"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuZvFYilEeWkgqaStR6EUQ" name="SubEtapaConteudo">
+      <ownedLiteral xmi:id="_xuZvFoilEeWkgqaStR6EUQ" name="nome"/>
+      <ownedLiteral xmi:id="_xuZvF4ilEeWkgqaStR6EUQ" name="etapaConteudo"/>
+    </packagedElement>
+    <profileApplication xmi:id="_xuZvGIilEeWkgqaStR6EUQ">
+      <eAnnotations xmi:id="_xuZvGYilEeWkgqaStR6EUQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_xuZvGoilEeWkgqaStR6EUQ" base_Package="_xuZvAIilEeWkgqaStR6EUQ" nsPrefix="estilo.estrutura" basePackage="estilo"/>
+  <Ecore:EEnum xmi:id="_xuZvG4ilEeWkgqaStR6EUQ" base_Enumeration="_xuZvAYilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWEIilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvAoilEeWkgqaStR6EUQ" literal="estiloNome"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWEYilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvA4ilEeWkgqaStR6EUQ" literal="descricao"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWEoilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvBIilEeWkgqaStR6EUQ" literal="recursos"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWE4ilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvBYilEeWkgqaStR6EUQ" literal="formaExploracao"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWFIilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvBoilEeWkgqaStR6EUQ" literal="ordemDetalhamento"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWFYilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvB4ilEeWkgqaStR6EUQ" literal="ordemComposicao"/>
+  <Ecore:EEnum xmi:id="_xuaWFoilEeWkgqaStR6EUQ" base_Enumeration="_xuZvCIilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWF4ilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvCYilEeWkgqaStR6EUQ" literal="nome"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWGIilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvCoilEeWkgqaStR6EUQ" literal="subEtapas"/>
+  <Ecore:EEnum xmi:id="_xuaWGYilEeWkgqaStR6EUQ" base_Enumeration="_xuZvC4ilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWGoilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvDIilEeWkgqaStR6EUQ" literal="nomeForma"/>
+  <Ecore:EEnum xmi:id="_xuaWG4ilEeWkgqaStR6EUQ" base_Enumeration="_xuZvDYilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWHIilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvDoilEeWkgqaStR6EUQ" literal="nomeOrdemComposicao"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWHYilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvD4ilEeWkgqaStR6EUQ" literal="ordem"/>
+  <Ecore:EEnum xmi:id="_xuaWHoilEeWkgqaStR6EUQ" base_Enumeration="_xuZvEIilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xuaWH4ilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvEYilEeWkgqaStR6EUQ" literal="nomeOrdemDetalhamento"/>
+  <Ecore:EEnum xmi:id="_xua9IIilEeWkgqaStR6EUQ" base_Enumeration="_xuZvEoilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xua9IYilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvE4ilEeWkgqaStR6EUQ" literal="nomeRecursoEstilo"/>
+  <Ecore:EEnumLiteral xmi:id="_xua9IoilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvFIilEeWkgqaStR6EUQ" literal="formatoRecurso"/>
+  <Ecore:EEnum xmi:id="_xua9I4ilEeWkgqaStR6EUQ" base_Enumeration="_xuZvFYilEeWkgqaStR6EUQ"/>
+  <Ecore:EEnumLiteral xmi:id="_xua9JIilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvFoilEeWkgqaStR6EUQ" literal="nome"/>
+  <Ecore:EEnumLiteral xmi:id="_xua9JYilEeWkgqaStR6EUQ" base_EnumerationLiteral="_xuZvF4ilEeWkgqaStR6EUQ" literal="etapaConteudo"/>
+</xmi:XMI>

@@ -1,0 +1,34 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import estilo.util.*;
+import java.util.*;
+
+public ruleBase OrdemDetalhamentoKB
+{
+   rule especificoparageral {
+  	
+  	declarations
+  		Estilos estilos;
+  		OrdemDetalhamento ordemDetalhamento;
+  	conditions
+  		ordemDetalhamento.equals(new OrdemDetalhamento("Específico Para Geral"));
+  	actions
+  		estilos.addItens("Verbal,Sequencial,Sensorial,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule geralparaespecifico {
+  	
+  	declarations
+  		Estilos estilos;
+  		OrdemDetalhamento ordemDetalhamento;
+  	conditions
+  		ordemDetalhamento.equals(new OrdemDetalhamento("Geral Para Específico"));
+  	actions
+  		estilos.addItens("Visual,Global,Intuitivo,Ativo");
+  		modified(estilos);
+  		flush();		
+  }   
+}

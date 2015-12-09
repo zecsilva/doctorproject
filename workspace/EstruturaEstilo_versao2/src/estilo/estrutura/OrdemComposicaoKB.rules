@@ -1,0 +1,48 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import estilo.util.*;
+import java.util.*;
+
+public ruleBase OrdemComposicaoKB
+{
+   rule estilos_1 {
+  	
+  	declarations
+  		Estilos estilos;
+  		OrdemComposicao ordemComposicao;
+  	conditions
+  		ordemComposicao.equals(new OrdemComposicao(Constantes.ORDEM_COMPOSICAO_1));
+  	actions
+  		estilos.addItens("Intuitivo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+  
+  rule estilos_2 {
+  	
+  	declarations
+  		Estilos estilos;
+  		OrdemComposicao ordemComposicao;
+  	conditions
+  		ordemComposicao.equals(new OrdemComposicao(Constantes.ORDEM_COMPOSICAO_2));
+  	actions
+  		estilos.addItens("Ativo,Sequencial");
+  		modified(estilos);
+  		flush();		
+  }
+  
+   rule estilos_3 {
+  	
+  	declarations
+  		Estilos estilos;
+  		OrdemComposicao ordemComposicao;
+  	conditions
+  		ordemComposicao.equals(new OrdemComposicao(Constantes.ORDEM_COMPOSICAO_3));
+  	actions
+ 		estilos.addItens("Verbal,Visual,Global,Sensorial");
+  		modified(estilos);
+  		flush();		
+  }
+  
+}

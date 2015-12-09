@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>estilo.estrutura</title>
+		
+		<style>
+		<!--
+			body {font-size: 10pt; clip: rect(); margin-top: 5mm; margin-left: 3mm}
+			h1 {font-size: 22px; font-weight: bold; color:white; background-color:#595791}
+			h2 {font-size: 16pt; font-weight: bold ; line-height: 20px; background-color:#FFFFCF}
+			h3 {font-size: 12pt}
+			p, table, td, th {font-size: 10pt}
+			code {font-size: 10pt}
+			li {font-size: 10pt; line-height: 20px}
+			
+			table.details {font: 11px/24px Verdana, Arial, Helvetica, sans-serif; border-collapse: collapse; width: 480px;}
+			table.details td.left  {order-bottom: 1px solid #CCC;	padding: 0 0.5em; vertical-align: text-top;}
+			table.details td.right {order-bottom: 1px solid #CCC;	padding: 0 0.5em; text-align: right; vertical-align: text-top;}
+			table.details tr.documentation {background: #f9fff9;}
+			table.details tr.odd           {background: #e3f0f7;}
+			table.details tr.even          {background: #f7f7f7;}
+		-->
+		</style>
+		
+		<script language="JavaScript" type="text/javascript">
+		<!--
+			function openSection(sectionId, open)
+			{
+				var section = document.getElementById(sectionId);
+				section.style.display = open ? 'block' : 'none';
+			}
+			
+			function selectAllChechboxes(elements, select)
+			{
+				for (var i = 0; i < elements.length; i++)
+				{
+					elements[i].checked = select;
+					openSection(elements[i].value, select);
+				}
+			}
+		// -->
+		</script>
+	</head>
+
+	<body lang="EN-US"><form name="packform" method="post">
+		<h1>Package: <i>estilo.estrutura</i></h1>
+			<table border="1" cellpadding="2" cellspacing="0" summary="Package details.">
+			
+				<tr>
+					<td>Ecore URI</td>
+					<td>platform:/resource/EstruturaEstilo/src/estilo/util/estrutura.ecore</td>
+				</tr>
+				<tr>
+					<td>GenModel URI</td>
+					<td>platform:/resource/EstruturaEstilo/src/estilo/util/teste.genmodel</td>
+				</tr>
+				<tr>
+					<td>Namespace URI</td>
+					<td>http:///estilo/estrutura.ecore</td>
+				</tr>
+				<tr>
+					<td>Namespace Prefix</td>
+					<td>estilo.estrutura</td>
+				</tr>
+		
+			</table>
+
+			<p><input type="checkbox" onclick="javascript:selectAllChechboxes(document.packform.detailCheckbox, this.checked)"/>expand all details</p>
+
+		
+		<h1>Enumerations</h1>
+			<h2><a name="Estilo">Estilo</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail1" onclick="javascript:openSection(this.value, this.checked)"/> estiloNome
+							<div id="detail1" name="detail1" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>estiloNome</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail2" onclick="javascript:openSection(this.value, this.checked)"/> descricao
+							<div id="detail2" name="detail2" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>descricao</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>1</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail3" onclick="javascript:openSection(this.value, this.checked)"/> recursos
+							<div id="detail3" name="detail3" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>recursos</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>2</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail4" onclick="javascript:openSection(this.value, this.checked)"/> formaExploracao
+							<div id="detail4" name="detail4" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>formaExploracao</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>3</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail5" onclick="javascript:openSection(this.value, this.checked)"/> ordemDetalhamento
+							<div id="detail5" name="detail5" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>ordemDetalhamento</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>4</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail6" onclick="javascript:openSection(this.value, this.checked)"/> ordemComposicao
+							<div id="detail6" name="detail6" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>ordemComposicao</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>5</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="EtapaConteudo">EtapaConteudo</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail7" onclick="javascript:openSection(this.value, this.checked)"/> nome
+							<div id="detail7" name="detail7" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nome</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail8" onclick="javascript:openSection(this.value, this.checked)"/> subEtapas
+							<div id="detail8" name="detail8" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>subEtapas</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>1</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="FormaExploracao">FormaExploracao</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail9" onclick="javascript:openSection(this.value, this.checked)"/> nomeForma
+							<div id="detail9" name="detail9" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nomeForma</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="OrdemComposicao">OrdemComposicao</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail10" onclick="javascript:openSection(this.value, this.checked)"/> nomeOrdemComposicao
+							<div id="detail10" name="detail10" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nomeOrdemComposicao</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail11" onclick="javascript:openSection(this.value, this.checked)"/> ordem
+							<div id="detail11" name="detail11" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>ordem</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>1</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="OrdemDetalhamento">OrdemDetalhamento</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail12" onclick="javascript:openSection(this.value, this.checked)"/> nomeOrdemDetalhamento
+							<div id="detail12" name="detail12" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nomeOrdemDetalhamento</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="RecursoEstilo">RecursoEstilo</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail13" onclick="javascript:openSection(this.value, this.checked)"/> nomeRecursoEstilo
+							<div id="detail13" name="detail13" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nomeRecursoEstilo</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail14" onclick="javascript:openSection(this.value, this.checked)"/> formatoRecurso
+							<div id="detail14" name="detail14" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>formatoRecurso</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>1</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+			<h2><a name="SubEtapaConteudo">SubEtapaConteudo</a></h2>
+		
+				<h3>Literals</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail15" onclick="javascript:openSection(this.value, this.checked)"/> nome
+							<div id="detail15" name="detail15" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>nome</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>0</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+						<li>
+							<input type="checkbox" name="detailCheckbox" value="detail16" onclick="javascript:openSection(this.value, this.checked)"/> etapaConteudo
+							<div id="detail16" name="detail16" style="overflow:hidden;display:none">
+								<table class="details">
+									<tr class="odd"><td class="left">literal</td><td class="right"><tt>etapaConteudo</tt></td></tr>
+									<tr class="even"><td class="left">value</td><td class="right"><tt>1</tt></td></tr>
+								</table><br />
+							</div>
+						</li>
+					</ul>
+
+	</form></body>
+</html>

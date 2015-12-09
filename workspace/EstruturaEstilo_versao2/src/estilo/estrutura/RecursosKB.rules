@@ -1,0 +1,270 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import estilo.util.*;
+import java.util.*;
+
+public ruleBase RecursosKB
+{
+   rule animacao {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Animacao;
+  	actions
+  		estilos.addItens("Visual,Sequencial,Reflexivo,Intuitivo");
+  		modified(estilos);
+  		flush();		
+  }
+  
+   rule autoavaliacao {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof AutoAvaliacao;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Sensorial,Intuitivo,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule demonstracao {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Demonstracao;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Sensorial,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule diagrama {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Diagrama;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule esquema {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Esquema;
+  	actions
+  		estilos.addItens("Visual,Sequencial,Global,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule exemplo {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Exemplo;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Sensorial,Intuitivo,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule exercicio {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Exercicio;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Sensorial,Intuitivo,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule experimento {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Experimento;
+  	actions
+  		estilos.addItens("Visual,Global,Sensorial,Ativo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule figura {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Figura;
+  	actions
+  		estilos.addItens("Visual,Sequencial,Global,Intuitivo,Ativo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule foto {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Foto;
+  	actions
+  		estilos.addItens("Visual,Intuitivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule grafico {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Grafico;
+  	actions
+  		estilos.addItens("Visual,Sequencial,Global,Sensorial,Intuitivo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule mapa {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Mapa;
+  	actions
+  		estilos.addItens("Visual,Global,Sensorial,Ativo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule narracao {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Narracao;
+  	actions
+  		estilos.addItens("Verbal,Sequencial,Sensorial,Intuitivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule paginaweb {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof PaginaWeb;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Sensorial,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule palestra {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Palestra;
+  	actions
+  		estilos.addItens("Verbal,Sequencial,Intuitivo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule questionario {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Questionario;
+  	actions
+  		estilos.addItens("Verbal,Sequencial,Intuitivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule simulacao {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Simulacao;
+  	actions
+  		estilos.addItens("Visual,Sequencial,Intuitivo,Ativo,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule slide {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Slide;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sequencial,Global,Sensorial,Intuitivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule tabela {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Tabela;
+  	actions
+  		estilos.addItens("Verbal,Visual,Sensorial,Reflexivo");
+  		modified(estilos);
+  		flush();		
+  }
+
+   rule video {
+  	
+  	declarations
+  		Estilos estilos;
+  		RecursoEstilo recurso;
+  	conditions
+  		recurso instanceof Video;
+  	actions
+  		estilos.addItens("Visual,Sensorial,Ativo");
+  		modified(estilos);
+  		flush();		
+  }
+ 
+  
+}

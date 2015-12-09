@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/EstruturaEstilo/src" modelPluginID="EstruturaEstilo"
+    modelName="Teste" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.java" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Estrutura" basePackage="estilo" disposableProviderFactory="true"
+      ecorePackage="estrutura.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//Estilo">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/estiloNome"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/descricao"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/recursos"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/formaExploracao"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/ordemDetalhamento"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//Estilo/ordemComposicao"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//EtapaConteudo">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//EtapaConteudo/nome"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//EtapaConteudo/subEtapas"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//FormaExploracao">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//FormaExploracao/nomeForma"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//OrdemComposicao">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//OrdemComposicao/nomeOrdemComposicao"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//OrdemComposicao/ordem"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//OrdemDetalhamento">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//OrdemDetalhamento/nomeOrdemDetalhamento"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//RecursoEstilo">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//RecursoEstilo/nomeRecursoEstilo"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//RecursoEstilo/formatoRecurso"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="estrutura.ecore#//SubEtapaConteudo">
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//SubEtapaConteudo/nome"/>
+      <genEnumLiterals ecoreEnumLiteral="estrutura.ecore#//SubEtapaConteudo/etapaConteudo"/>
+    </genEnums>
+  </genPackages>
+</genmodel:GenModel>
