@@ -1,5 +1,7 @@
 package estilo.recursos;
 
+import javax.swing.ImageIcon;
+
 import estilo.estrutura.RecursoEstilo;
 
 public class PaginaWeb extends RecursoEstilo {
@@ -8,6 +10,8 @@ public class PaginaWeb extends RecursoEstilo {
 		super();
 		setFormatoRecurso("Texto");
 		setNomeRecursoEstilo("PaginaWeb");
+		setImagem(new ImageIcon(getClass().getResource(this.getClass().getSimpleName()+".png")));
+
 		// TODO Auto-generated constructor stub
 	}
 

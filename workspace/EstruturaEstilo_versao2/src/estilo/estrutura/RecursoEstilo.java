@@ -1,5 +1,9 @@
 package estilo.estrutura;
 
+import java.awt.image.BufferedImage;
+
+import javax.swing.ImageIcon;
+
 /**
  * @model
  */
@@ -13,6 +17,8 @@ public class RecursoEstilo
 	 * @model
 	 */
 	private String formatoRecurso;
+	
+	private ImageIcon imagem;
 	/*public RecursoEstilo(String nome)
 	{
 		setNomeRecursoEstilo(nome);
@@ -32,6 +38,12 @@ public class RecursoEstilo
 	@Override
 	public String toString() {
 		return "nomeRecursoEstilo";
+	}
+	public ImageIcon getImagem() {
+		return imagem;
+	}
+	public void setImagem(ImageIcon imagem) {
+		this.imagem = imagem;
 	}
 	
 }
