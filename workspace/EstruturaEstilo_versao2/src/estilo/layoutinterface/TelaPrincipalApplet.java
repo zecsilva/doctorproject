@@ -28,6 +28,7 @@ import estilo.estrutura.Estilo;
 import estilo.estrutura.EstilosKB;
 import estilo.estrutura.EtapaConteudo;
 import estilo.estrutura.SubEtapaConteudo;
+import javax.swing.border.BevelBorder;
 
 public class TelaPrincipalApplet extends JApplet {
 	/**
@@ -61,7 +62,7 @@ public class TelaPrincipalApplet extends JApplet {
 		getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 732, 430);
+		tabbedPane.setBounds(0, 0, 843, 477);
 		getContentPane().add(tabbedPane);
 		
 		JPanel panelEstilo = new JPanel();
@@ -137,7 +138,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnAvancar.setBounds(367, 374, 89, 23);
+		btnAvancar.setBounds(369, 415, 89, 23);
 		panelLayout.add(btnAvancar);
 		
 		btnVoltar = new JButton("Voltar");
@@ -156,7 +157,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnVoltar.setBounds(268, 374, 89, 23);
+		btnVoltar.setBounds(270, 415, 89, 23);
 		panelLayout.add(btnVoltar);
 		
 		btnUltimo = new JButton("\u00DAltimo");
@@ -169,7 +170,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnUltimo.setBounds(460, 374, 89, 23);
+		btnUltimo.setBounds(462, 415, 89, 23);
 		panelLayout.add(btnUltimo);
 		
 		btnPrimeiro = new JButton("Primeiro");
@@ -181,15 +182,31 @@ public class TelaPrincipalApplet extends JApplet {
 				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
 			}
 		});
-		btnPrimeiro.setBounds(169, 374, 89, 23);
+		btnPrimeiro.setBounds(171, 415, 89, 23);
 		panelLayout.add(btnPrimeiro);
 		
 		panelAreaConteudo = new JPanel();
-		panelAreaConteudo.setBounds(157, 43, 570, 295);
+		panelAreaConteudo.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.RED, Color.RED, Color.RED, Color.RED));
+		panelAreaConteudo.setBounds(157, 43, 671, 327);
 		panelLayout.add(panelAreaConteudo);
 		panelAreaConteudo.setLayout(null);
 		
+		JLabel lblRecurso = new JLabel("recurso");
+		lblRecurso.setBounds(10, 11, 550, 239);
+		panelAreaConteudo.add(lblRecurso);
+		
+		scrollPaneMapa = new JScrollPane();
+		scrollPaneMapa.setBounds(10, 43, 127, 295);
+		panelLayout.add(scrollPaneMapa);
+		
 		btnOk = new JButton("OK");
+		btnOk.setBounds(572, 381, 57, 23);
+		panelLayout.add(btnOk);
+		
+		txtTesteFormaExploracao = new JTextField();
+		txtTesteFormaExploracao.setBounds(171, 382, 371, 20);
+		panelLayout.add(txtTesteFormaExploracao);
+		txtTesteFormaExploracao.setColumns(10);
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (etapaConteudoCorrente == estilo.getOrdemComposicao().getOrdem().get(0) &&
@@ -206,21 +223,6 @@ public class TelaPrincipalApplet extends JApplet {
 				}
 			}
 		});
-		btnOk.setBounds(503, 261, 57, 23);
-		panelAreaConteudo.add(btnOk);
-		
-		txtTesteFormaExploracao = new JTextField();
-		txtTesteFormaExploracao.setBounds(102, 262, 371, 20);
-		panelAreaConteudo.add(txtTesteFormaExploracao);
-		txtTesteFormaExploracao.setColumns(10);
-		
-		JLabel lblRecurso = new JLabel("recurso");
-		lblRecurso.setBounds(10, 11, 241, 165);
-		panelAreaConteudo.add(lblRecurso);
-		
-		scrollPaneMapa = new JScrollPane();
-		scrollPaneMapa.setBounds(10, 43, 127, 295);
-		panelLayout.add(scrollPaneMapa);
 	}
 	
 	protected void exibirEstilo(Estilo e) {
