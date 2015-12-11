@@ -191,9 +191,25 @@ public class TelaPrincipalApplet extends JApplet {
 		panelLayout.add(panelAreaConteudo);
 		panelAreaConteudo.setLayout(null);
 		
-		JLabel lblRecurso = new JLabel("recurso");
-		lblRecurso.setBounds(10, 11, 550, 239);
-		panelAreaConteudo.add(lblRecurso);
+		JLabel lblRecurso1 = new JLabel("recurso");
+		lblRecurso1.setBounds(10, 11, 100, 100);
+		panelAreaConteudo.add(lblRecurso1);
+		
+		JLabel lblRecurso2 = new JLabel("recurso");
+		lblRecurso2.setBounds(113, 11, 100, 100);
+		panelAreaConteudo.add(lblRecurso2);
+		
+		JLabel lblRecurso3 = new JLabel("recurso");
+		lblRecurso3.setBounds(223, 11, 100, 100);
+		panelAreaConteudo.add(lblRecurso3);
+		
+		JLabel lblRecurso4 = new JLabel("recurso");
+		lblRecurso4.setBounds(333, 11, 100, 100);
+		panelAreaConteudo.add(lblRecurso4);
+		
+		JLabel lblRecurso5 = new JLabel("recurso");
+		lblRecurso5.setBounds(443, 11, 100, 100);
+		panelAreaConteudo.add(lblRecurso5);
 		
 		scrollPaneMapa = new JScrollPane();
 		scrollPaneMapa.setBounds(10, 43, 127, 295);
