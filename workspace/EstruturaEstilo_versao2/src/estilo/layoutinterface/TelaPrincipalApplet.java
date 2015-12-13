@@ -21,6 +21,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTree;
+import javax.swing.border.BevelBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
@@ -28,7 +29,7 @@ import estilo.estrutura.Estilo;
 import estilo.estrutura.EstilosKB;
 import estilo.estrutura.EtapaConteudo;
 import estilo.estrutura.SubEtapaConteudo;
-import javax.swing.border.BevelBorder;
+import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
 
 public class TelaPrincipalApplet extends JApplet {
 	/**
@@ -39,6 +40,7 @@ public class TelaPrincipalApplet extends JApplet {
 	private JTextField txtNomeEstilo;
 	private JLabel label;
 	private JScrollPane scrollPane;
+	private JScrollPane scrollPaneAreaConteudo;
 	private JTextArea txtEstilo;
 	private JPanel panelLayout;
 	private JTree treeMapaConteudo;
@@ -57,6 +59,16 @@ public class TelaPrincipalApplet extends JApplet {
 	private HashMap<DefaultMutableTreeNode, SubEtapaConteudo> mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
 
 	protected Estilo estilo;
+	private JLabel lblRecurso6;
+	private JLabel lblRecurso7;
+	private JLabel lblRecurso8;
+	private JLabel lblRecurso9;
+	private JLabel lblRecurso10;
+	private JLabel lblRecurso11;
+	private JLabel lblRecurso12;
+	private JLabel lblRecurso13;
+	private JLabel lblRecurso14;
+	private JLabel lblRecurso15;
 	
 	public TelaPrincipalApplet() {
 		getContentPane().setLayout(null);
@@ -69,6 +81,11 @@ public class TelaPrincipalApplet extends JApplet {
 		panelEstilo.setLayout(null);
 		panelEstilo.setToolTipText("Teste de Estilos");
 		tabbedPane.addTab("Informar Estilo", null, panelEstilo, null);
+		
+		JPanel panelRecurso = new JPanel();
+		panelRecurso.setLayout(null);
+		panelRecurso.setToolTipText("Teste de Recursos");
+		tabbedPane.addTab("Informar Recursos", null, panelRecurso, null);
 		
 		txtNomeEstilo = new JTextField();
 		txtNomeEstilo.addFocusListener(new FocusAdapter() {
@@ -185,31 +202,77 @@ public class TelaPrincipalApplet extends JApplet {
 		btnPrimeiro.setBounds(171, 415, 89, 23);
 		panelLayout.add(btnPrimeiro);
 		
+		scrollPaneAreaConteudo = new JScrollPane((Component) null);
+		scrollPaneAreaConteudo.setBounds(171, 48, 657, 311);
+		panelLayout.add(scrollPaneAreaConteudo);
+		
 		panelAreaConteudo = new JPanel();
 		panelAreaConteudo.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.RED, Color.RED, Color.RED, Color.RED));
 		panelAreaConteudo.setBounds(157, 43, 671, 327);
-		panelLayout.add(panelAreaConteudo);
+		//panelLayout.add(panelAreaConteudo);
 		panelAreaConteudo.setLayout(null);
 		
-		JLabel lblRecurso1 = new JLabel("recurso");
+		scrollPaneAreaConteudo.setViewportView(panelAreaConteudo);
+		
+		JLabel lblRecurso1 = new MostrarRecurso("recurso");
 		lblRecurso1.setBounds(10, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso1);
 		
-		JLabel lblRecurso2 = new JLabel("recurso");
+		JLabel lblRecurso2 = new MostrarRecurso("recurso");
 		lblRecurso2.setBounds(113, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso2);
 		
-		JLabel lblRecurso3 = new JLabel("recurso");
+		JLabel lblRecurso3 = new MostrarRecurso("recurso");
 		lblRecurso3.setBounds(223, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso3);
 		
-		JLabel lblRecurso4 = new JLabel("recurso");
+		JLabel lblRecurso4 = new MostrarRecurso("recurso");
 		lblRecurso4.setBounds(333, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso4);
 		
-		JLabel lblRecurso5 = new JLabel("recurso");
+		JLabel lblRecurso5 = new MostrarRecurso("recurso");
 		lblRecurso5.setBounds(443, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso5);
+		
+		lblRecurso6 = new MostrarRecurso("recurso");
+		lblRecurso6.setBounds(10, 122, 100, 100);
+		panelAreaConteudo.add(lblRecurso6);
+		
+		lblRecurso7 = new MostrarRecurso("recurso");
+		lblRecurso7.setBounds(113, 122, 100, 100);
+		panelAreaConteudo.add(lblRecurso7);
+		
+		lblRecurso8 = new MostrarRecurso("recurso");
+		lblRecurso8.setBounds(223, 122, 100, 100);
+		panelAreaConteudo.add(lblRecurso8);
+		
+		lblRecurso9 = new MostrarRecurso("recurso");
+		lblRecurso9.setBounds(333, 122, 100, 100);
+		panelAreaConteudo.add(lblRecurso9);
+		
+		lblRecurso10 = new MostrarRecurso("recurso");
+		lblRecurso10.setBounds(443, 122, 100, 100);
+		panelAreaConteudo.add(lblRecurso10);
+		
+		lblRecurso11 = new MostrarRecurso("recurso");
+		lblRecurso11.setBounds(10, 247, 100, 100);
+		panelAreaConteudo.add(lblRecurso11);
+		
+		lblRecurso12 = new MostrarRecurso("recurso");
+		lblRecurso12.setBounds(113, 247, 100, 100);
+		panelAreaConteudo.add(lblRecurso12);
+		
+		lblRecurso13 = new MostrarRecurso("recurso");
+		lblRecurso13.setBounds(223, 247, 100, 100);
+		panelAreaConteudo.add(lblRecurso13);
+		
+		lblRecurso14 = new MostrarRecurso("recurso");
+		lblRecurso14.setBounds(333, 247, 100, 100);
+		panelAreaConteudo.add(lblRecurso14);
+		
+		lblRecurso15 = new MostrarRecurso("recurso");
+		lblRecurso15.setBounds(443, 247, 100, 100);
+		panelAreaConteudo.add(lblRecurso15);
 		
 		scrollPaneMapa = new JScrollPane();
 		scrollPaneMapa.setBounds(10, 43, 127, 295);
@@ -223,6 +286,9 @@ public class TelaPrincipalApplet extends JApplet {
 		txtTesteFormaExploracao.setBounds(171, 382, 371, 20);
 		panelLayout.add(txtTesteFormaExploracao);
 		txtTesteFormaExploracao.setColumns(10);
+		
+		
+
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (etapaConteudoCorrente == estilo.getOrdemComposicao().getOrdem().get(0) &&

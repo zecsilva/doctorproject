@@ -4,7 +4,7 @@ public class ElementoComposicao {
 
 	@Override
 	public String toString() {
-		return "ElementoComposicao [nome=" + nome + "]";
+		return  nome;
 	}
 
 	private String nome;
