@@ -80,7 +80,7 @@ public class TelaPrincipalApplet extends JApplet {
 		getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 843, 477);
+		tabbedPane.setBounds(0, 0, 843, 558);
 		getContentPane().add(tabbedPane);
 		
 		JPanel panelEstilo = new JPanel();
@@ -161,7 +161,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnAvancar.setBounds(369, 415, 89, 23);
+		btnAvancar.setBounds(369, 496, 89, 23);
 		panelLayout.add(btnAvancar);
 		
 		btnVoltar = new JButton("Voltar");
@@ -180,7 +180,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnVoltar.setBounds(270, 415, 89, 23);
+		btnVoltar.setBounds(270, 496, 89, 23);
 		panelLayout.add(btnVoltar);
 		
 		btnUltimo = new JButton("\u00DAltimo");
@@ -193,7 +193,7 @@ public class TelaPrincipalApplet extends JApplet {
 
 			}
 		});
-		btnUltimo.setBounds(462, 415, 89, 23);
+		btnUltimo.setBounds(462, 496, 89, 23);
 		panelLayout.add(btnUltimo);
 		
 		btnPrimeiro = new JButton("Primeiro");
@@ -205,11 +205,11 @@ public class TelaPrincipalApplet extends JApplet {
 				txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
 			}
 		});
-		btnPrimeiro.setBounds(171, 415, 89, 23);
+		btnPrimeiro.setBounds(171, 496, 89, 23);
 		panelLayout.add(btnPrimeiro);
 		
 		scrollPaneAreaConteudo = new JScrollPane((Component) null);
-		scrollPaneAreaConteudo.setBounds(171, 48, 657, 311);
+		scrollPaneAreaConteudo.setBounds(171, 48, 657, 386);
 		panelLayout.add(scrollPaneAreaConteudo);
 		
 		panelAreaConteudo = new JPanel();
@@ -287,11 +287,11 @@ public class TelaPrincipalApplet extends JApplet {
 		panelLayout.add(scrollPaneMapa);
 		
 		btnOk = new JButton("OK");
-		btnOk.setBounds(572, 381, 57, 23);
+		btnOk.setBounds(572, 462, 57, 23);
 		panelLayout.add(btnOk);
 		
 		txtTesteFormaExploracao = new JTextField();
-		txtTesteFormaExploracao.setBounds(171, 382, 371, 20);
+		txtTesteFormaExploracao.setBounds(171, 463, 371, 20);
 		panelLayout.add(txtTesteFormaExploracao);
 		txtTesteFormaExploracao.setColumns(10);
 		
