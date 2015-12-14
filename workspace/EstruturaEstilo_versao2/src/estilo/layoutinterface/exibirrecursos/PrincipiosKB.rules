@@ -9,7 +9,9 @@ public ruleBase PrincipiosKB
   rule  
   {
   declarations
-   
+  	estilo (talvez)
+   recursos disponíveis
+   array da tela para exibir recursos
   conditions
    
   actions

@@ -126,6 +126,13 @@ public class Estilo
 	}
 
 
+	public Boolean temRecurso(String nomeRecurso){
+		for (RecursoEstilo re : this.getRecursos() ){
+			if (re.getNomeRecursoEstilo().equalsIgnoreCase(nomeRecurso))
+					return true;
+		}
+		return false;
+	}
 
 	@Override
 	public int hashCode() {
@@ -154,5 +161,6 @@ public class Estilo
 		return true;
 	}
 
+	
 	
 }
