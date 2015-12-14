@@ -59,16 +59,22 @@ public class TelaPrincipalApplet extends JApplet {
 	private HashMap<DefaultMutableTreeNode, SubEtapaConteudo> mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
 
 	protected Estilo estilo;
-	private JLabel lblRecurso6;
-	private JLabel lblRecurso7;
-	private JLabel lblRecurso8;
-	private JLabel lblRecurso9;
-	private JLabel lblRecurso10;
-	private JLabel lblRecurso11;
-	private JLabel lblRecurso12;
-	private JLabel lblRecurso13;
-	private JLabel lblRecurso14;
-	private JLabel lblRecurso15;
+	
+	private MostrarRecurso lblRecurso1;
+	private MostrarRecurso lblRecurso2;
+	private MostrarRecurso lblRecurso3;
+	private MostrarRecurso lblRecurso4;
+	private MostrarRecurso lblRecurso5;
+	private MostrarRecurso lblRecurso6;
+	private MostrarRecurso lblRecurso7;
+	private MostrarRecurso lblRecurso8;
+	private MostrarRecurso lblRecurso9;
+	private MostrarRecurso lblRecurso10;
+	private MostrarRecurso lblRecurso11;
+	private MostrarRecurso lblRecurso12;
+	private MostrarRecurso lblRecurso13;
+	private MostrarRecurso lblRecurso14;
+	private MostrarRecurso lblRecurso15;
 	
 	public TelaPrincipalApplet() {
 		getContentPane().setLayout(null);
@@ -214,23 +220,23 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		scrollPaneAreaConteudo.setViewportView(panelAreaConteudo);
 		
-		JLabel lblRecurso1 = new MostrarRecurso("recurso");
+		lblRecurso1 = new MostrarRecurso("recurso");
 		lblRecurso1.setBounds(10, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso1);
 		
-		JLabel lblRecurso2 = new MostrarRecurso("recurso");
+		lblRecurso2 = new MostrarRecurso("recurso");
 		lblRecurso2.setBounds(113, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso2);
 		
-		JLabel lblRecurso3 = new MostrarRecurso("recurso");
+		lblRecurso3 = new MostrarRecurso("recurso");
 		lblRecurso3.setBounds(223, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso3);
 		
-		JLabel lblRecurso4 = new MostrarRecurso("recurso");
+		lblRecurso4 = new MostrarRecurso("recurso");
 		lblRecurso4.setBounds(333, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso4);
 		
-		JLabel lblRecurso5 = new MostrarRecurso("recurso");
+		lblRecurso5 = new MostrarRecurso("recurso");
 		lblRecurso5.setBounds(443, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso5);
 		
@@ -273,6 +279,8 @@ public class TelaPrincipalApplet extends JApplet {
 		lblRecurso15 = new MostrarRecurso("recurso");
 		lblRecurso15.setBounds(443, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso15);
+		
+		arranjarLabels();
 		
 		scrollPaneMapa = new JScrollPane();
 		scrollPaneMapa.setBounds(10, 43, 127, 295);
@@ -476,5 +484,57 @@ public class TelaPrincipalApplet extends JApplet {
 	    
 	    
 		return e;
+	}
+	
+	protected void arranjarLabels() {
+		
+		lblRecurso1.setDireita(lblRecurso2);
+		lblRecurso2.setDireita(lblRecurso3);
+		lblRecurso3.setDireita(lblRecurso4);
+		lblRecurso4.setDireita(lblRecurso5);
+		lblRecurso6.setDireita(lblRecurso7);
+		lblRecurso7.setDireita(lblRecurso8);
+		lblRecurso8.setDireita(lblRecurso9);
+		lblRecurso9.setDireita(lblRecurso10);
+		lblRecurso11.setDireita(lblRecurso12);
+		lblRecurso12.setDireita(lblRecurso13);
+		lblRecurso13.setDireita(lblRecurso14);
+		lblRecurso14.setDireita(lblRecurso15);
+		
+		lblRecurso2.setEsquerda(lblRecurso1);
+		lblRecurso3.setEsquerda(lblRecurso2);
+		lblRecurso4.setEsquerda(lblRecurso3);
+		lblRecurso5.setEsquerda(lblRecurso4);
+		lblRecurso7.setEsquerda(lblRecurso6);
+		lblRecurso8.setEsquerda(lblRecurso7);
+		lblRecurso9.setEsquerda(lblRecurso8);
+		lblRecurso10.setEsquerda(lblRecurso9);
+		lblRecurso12.setEsquerda(lblRecurso11);
+		lblRecurso13.setEsquerda(lblRecurso12);
+		lblRecurso14.setEsquerda(lblRecurso13);
+		lblRecurso15.setEsquerda(lblRecurso14);
+		
+		lblRecurso6.setCima(lblRecurso1);
+		lblRecurso7.setCima(lblRecurso2);
+		lblRecurso8.setCima(lblRecurso3);
+		lblRecurso9.setCima(lblRecurso4);
+		lblRecurso10.setCima(lblRecurso5);
+		lblRecurso11.setCima(lblRecurso6);
+		lblRecurso12.setCima(lblRecurso7);
+		lblRecurso13.setCima(lblRecurso8);
+		lblRecurso14.setCima(lblRecurso9);
+		lblRecurso15.setCima(lblRecurso10);
+		
+		lblRecurso1.setBaixo(lblRecurso6);
+		lblRecurso2.setBaixo(lblRecurso7);
+		lblRecurso3.setBaixo(lblRecurso8);
+		lblRecurso4.setBaixo(lblRecurso9);
+		lblRecurso5.setBaixo(lblRecurso10);
+		lblRecurso6.setBaixo(lblRecurso11);
+		lblRecurso7.setBaixo(lblRecurso12);
+		lblRecurso8.setBaixo(lblRecurso13);
+		lblRecurso9.setBaixo(lblRecurso14);
+		lblRecurso10.setBaixo(lblRecurso15);
+		
 	}
 }

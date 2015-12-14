@@ -1,0 +1,22 @@
+package estilo.estrutura;
+
+import estilo.recursos.*;
+import java.util.*;
+
+public ruleBase PrincipiosKB
+{
+  
+  rule  
+  {
+  declarations
+   
+  conditions
+   
+  actions
+	
+	  flush();
+  
+  }
+  
+  
+}
