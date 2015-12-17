@@ -548,7 +548,7 @@ extends jeops.AbstractRuleBase {
   	  System.out.println(" Ativou a regra para o estilo Sensorial");
       OrdemComposicao ordemComposicao = new OrdemComposicao();
       ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
-      ordemComposicao.getOrdem().add(new EtapaConteudo("Introducao"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
@@ -1856,7 +1856,7 @@ extends jeops.AbstractRuleBase {
 /**
  * Knowledge base created by JEOPS from file EstilosKB.rules
  *
- * @version 21/10/2015
+ * @version 17/12/2015
  */
 public class EstilosKB extends jeops.AbstractKnowledgeBase {
 

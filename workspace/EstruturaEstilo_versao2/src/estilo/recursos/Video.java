@@ -17,7 +17,7 @@ public class Video extends RecursoEstilo {
 
 	@Override
 	public String toString() {
-		return "Vídeo ";
+		return "Vídeo";
 	}
 
 }

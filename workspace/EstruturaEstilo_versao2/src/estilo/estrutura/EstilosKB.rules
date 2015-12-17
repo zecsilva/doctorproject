@@ -88,7 +88,7 @@ public ruleBase EstilosKB
   	  System.out.println(" Ativou a regra para o estilo Sensorial");
       OrdemComposicao ordemComposicao = new OrdemComposicao();
       ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
-      ordemComposicao.getOrdem().add(new EtapaConteudo("Introducao"));
+      ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
       ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));

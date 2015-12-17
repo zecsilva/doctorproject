@@ -1,7 +1,7 @@
 package estilo.estrutura;
 
 import estilo.recursos.*;
-import java.util.*;
+import java.util.*; 
 
 public ruleBase PrincipiosKB
 {

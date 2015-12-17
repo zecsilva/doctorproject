@@ -16,8 +16,8 @@
     <tipoForma>tipo detecção</tipoForma>
   </formaDeteccao>
   <instrumentoInvestigacao>
-    <nomeInstrumento>nome ii</nomeInstrumento>
-    <descricaoInstrumento>descrição ii</descricaoInstrumento>
+    <nomeInstrumento>nome instrumento investigação</nomeInstrumento>
+    <descricaoInstrumento>descrição instrumento investigação</descricaoInstrumento>
   </instrumentoInvestigacao>
   <estilo>
     <estiloNome>ativo</estiloNome>
