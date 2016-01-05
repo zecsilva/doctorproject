@@ -17,6 +17,8 @@ private EtapaConteudo etapaConteudo;
 
 DefaultMutableTreeNode nodo;
 
+private int nivelEspecificidade;
+
 
 public SubEtapaConteudo(String nome, EtapaConteudo etapaConteudo) {
 	super();
@@ -82,6 +84,14 @@ public DefaultMutableTreeNode getNodo() {
 
 public void setNodo(DefaultMutableTreeNode nodo) {
 	this.nodo = nodo;
+}
+
+public int getNivelEspecificidade() {
+	return nivelEspecificidade;
+}
+
+public void setNivelEspecificidade(int nivelEspecificidade) {
+	this.nivelEspecificidade = nivelEspecificidade;
 }
 
 

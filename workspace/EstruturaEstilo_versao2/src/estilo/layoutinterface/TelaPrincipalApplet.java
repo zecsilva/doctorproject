@@ -30,6 +30,7 @@ import estilo.estrutura.EstilosKB;
 import estilo.estrutura.EtapaConteudo;
 import estilo.estrutura.SubEtapaConteudo;
 import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
+import estilo.util.Constantes;
 
 public class TelaPrincipalApplet extends JApplet {
 	/**
@@ -75,6 +76,16 @@ public class TelaPrincipalApplet extends JApplet {
 	private MostrarRecurso lblRecurso13;
 	private MostrarRecurso lblRecurso14;
 	private MostrarRecurso lblRecurso15;
+
+	private JLabel lblEspecificidade;
+	private JLabel lblInformarQuantidadeDe;
+	private JLabel lblInformarTotalDe;
+	private JTextField txtQtdeSubetapas;
+	private JTextField txtTotalNiveis;
+
+	private int qtdeSubetapas;
+
+	private int totalNiveis;
 	
 	public TelaPrincipalApplet() {
 		getContentPane().setLayout(null);
@@ -135,6 +146,24 @@ public class TelaPrincipalApplet extends JApplet {
 		txtEstilo.setFont(new Font("Monospaced", Font.PLAIN, 13));
 
 		scrollPane.setViewportView(txtEstilo);
+		
+		lblInformarQuantidadeDe = new JLabel("Informar quantidade de sub-etapas:");
+		lblInformarQuantidadeDe.setBounds(193, 329, 228, 14);
+		panelEstilo.add(lblInformarQuantidadeDe);
+		
+		lblInformarTotalDe = new JLabel("Informar total de n\u00EDveis (<= qtde subetapas):");
+		lblInformarTotalDe.setBounds(192, 354, 269, 14);
+		panelEstilo.add(lblInformarTotalDe);
+		
+		txtQtdeSubetapas = new JTextField();
+		txtQtdeSubetapas.setBounds(522, 326, 86, 20);
+		panelEstilo.add(txtQtdeSubetapas);
+		txtQtdeSubetapas.setColumns(10);
+		
+		txtTotalNiveis = new JTextField();
+		txtTotalNiveis.setBounds(522, 351, 86, 20);
+		panelEstilo.add(txtTotalNiveis);
+		txtTotalNiveis.setColumns(10);
 		
 		panelLayout = new JPanel();
 		tabbedPane.addTab("Exibir Estilo", null, panelLayout, null);
@@ -295,6 +324,14 @@ public class TelaPrincipalApplet extends JApplet {
 		panelLayout.add(txtTesteFormaExploracao);
 		txtTesteFormaExploracao.setColumns(10);
 		
+		JLabel lblNvelDeEspecificidade = new JLabel("Ordem de Detalhamento / N\u00EDvel:");
+		lblNvelDeEspecificidade.setBounds(171, 21, 223, 14);
+		panelLayout.add(lblNvelDeEspecificidade);
+		
+		lblEspecificidade = new JLabel("");
+		lblEspecificidade.setBounds(447, 23, 234, 14);
+		panelLayout.add(lblEspecificidade);
+		
 		
 
 		btnOk.addActionListener(new ActionListener() {
@@ -317,15 +354,67 @@ public class TelaPrincipalApplet extends JApplet {
 	
 	protected void exibirEstilo(Estilo e) {
 
+		atribuirQtdeNiveisESubetapas();
 		exibirMapaConteudo(e);
 
 		etapaConteudoCorrente = e.getOrdemComposicao().getOrdem().get(0);
 		subEtapaCorrente = etapaConteudoCorrente.getSubEtapas().get(0);
 
+
 		controlarNavegacao(e);
+
+		atribuirNiveis(e);
 		exibirRecursos(e);
 		
+		
 	}
+
+	private void atribuirQtdeNiveisESubetapas() {
+	
+			try{
+			qtdeSubetapas = Integer.parseInt(txtQtdeSubetapas.getText());
+			}catch (NumberFormatException ne){
+				qtdeSubetapas = Constantes.QTDE_SUBETAPAS_PADRAO;
+			}
+			try{
+			totalNiveis = Integer.parseInt(txtTotalNiveis.getText());
+			} catch (NumberFormatException ne) {
+				totalNiveis = Constantes.TOTAL_NIVEIS_PADRAO;
+			}
+	
+		
+	}
+
+	private void atribuirNiveis(Estilo e){	
+		
+		Integer modulo = qtdeSubetapas * Constantes.NUMERO_ETAPAS
+				/ totalNiveis;
+		int contador = 1;
+		int nivel = 1;
+
+		if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_1)) { //esp p geral
+			nivel = 1;
+		} else if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_2)) { //geral p esp
+			nivel = totalNiveis;
+		}
+		
+		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
+			for (SubEtapaConteudo subEtapa: etapa.getSubEtapas()){
+				subEtapa.setNivelEspecificidade(nivel);
+				if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_1) &&
+						contador % modulo == 0 && nivel <= totalNiveis)
+					nivel ++;
+				if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_2) &&
+						contador % modulo == 0 && nivel >= 1)
+					nivel --;
+				contador ++;
+			}
+		}
+		
+		
+		
+	}
+
 
 	private void exibirRecursos(Estilo e) {
 		// TODO Auto-generated method stub
@@ -333,6 +422,10 @@ public class TelaPrincipalApplet extends JApplet {
 	}
 
 	private void controlarNavegacao(Estilo e) {
+		
+		atribuirNiveis(e);
+		lblEspecificidade.setText(e.getOrdemDetalhamento().getNomeOrdemDetalhamento() + 
+				" - Nível " +subEtapaCorrente.getNivelEspecificidade() + " de " + totalNiveis);
 		
 		
 		if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Linear")){
@@ -343,8 +436,13 @@ public class TelaPrincipalApplet extends JApplet {
 				btnVoltar.setEnabled(false);
 				btnAvancar.setEnabled(false);
 				btnUltimo.setEnabled(false);
-			}
-			else{
+			}else if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(e.getOrdemComposicao().getOrdem().size()-1)) &&
+					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1))){ // se etapa e subetapa últimas 
+				btnPrimeiro.setEnabled(true);
+				btnVoltar.setEnabled(true);
+				btnAvancar.setEnabled(false);
+				btnUltimo.setEnabled(true);
+			}else{
 				btnPrimeiro.setEnabled(true);
 				btnVoltar.setEnabled(true);
 				btnAvancar.setEnabled(false);
@@ -421,7 +519,7 @@ public class TelaPrincipalApplet extends JApplet {
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
 			etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
 			//bloco de teste
-				for (int i = 1; i < 4; i++){
+				for (int i = 1; i <= qtdeSubetapas; i++){
 				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
 					if (expande == true)
 						nodo.add(subNodo);
@@ -454,7 +552,7 @@ public class TelaPrincipalApplet extends JApplet {
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
 			etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
 			//bloco de teste
-			for (int i = 1; i < 4; i++){
+			for (int i = 1; i <= qtdeSubetapas; i++){
 				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
 				nodo.add(new DefaultMutableTreeNode(subNodo));
 				SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
@@ -470,7 +568,7 @@ public class TelaPrincipalApplet extends JApplet {
 		treeMapaConteudo.setBounds(10, 58, 90, 295);
 		scrollPaneMapa.setViewportView(treeMapaConteudo);
 
-		
+
 	}
 
 	protected Estilo retornarEstilo() {

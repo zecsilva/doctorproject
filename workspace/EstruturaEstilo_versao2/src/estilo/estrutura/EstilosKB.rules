@@ -34,7 +34,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Exemplo());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Rede"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -71,7 +71,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Demonstracao());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Linear"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -108,7 +108,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Demonstracao());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Rede"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -143,7 +143,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Foto());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Linear"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -181,7 +181,7 @@ public ruleBase EstilosKB
 	  recursos.add(new PaginaWeb());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Linear"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -215,7 +215,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Exemplo());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Rede"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -249,7 +249,7 @@ public ruleBase EstilosKB
 	  recursos.add(new PaginaWeb());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Linear"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();
@@ -287,7 +287,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Demonstracao());
 	  e.setRecursos(recursos);
 	  e.setFormaExploracao(new FormaExploracao("Rede"));
-	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
 	  flush();

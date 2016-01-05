@@ -186,7 +186,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Exemplo());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -377,7 +377,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Demonstracao());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -568,7 +568,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Demonstracao());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -757,7 +757,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Foto());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -949,7 +949,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new PaginaWeb());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -1137,7 +1137,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Exemplo());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -1325,7 +1325,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new PaginaWeb());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico-para-geral"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
@@ -1517,7 +1517,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Demonstracao());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
 	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
-	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral-para-Específico"));
+	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
 	  flush();
