@@ -15,4 +15,7 @@ public class Constantes {
 	public static final int QTDE_SUBETAPAS_PADRAO = 3;
 	public static final int TOTAL_NIVEIS_PADRAO = 5;
 	
+	public static final int MAX_RECURSOS_TELA = 5;
+	public static final int QTDE_MOSTRAR_RECURSO = 15;
+	
 }

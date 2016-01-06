@@ -1,6 +1,10 @@
 package estilo.estrutura;
 
+import java.util.HashMap;
+
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
 
 /**
  * @model
@@ -19,6 +23,7 @@ DefaultMutableTreeNode nodo;
 
 private int nivelEspecificidade;
 
+private HashMap<Integer, RecursoEstilo> mapLblRecurso;
 
 public SubEtapaConteudo(String nome, EtapaConteudo etapaConteudo) {
 	super();
@@ -92,6 +97,15 @@ public int getNivelEspecificidade() {
 
 public void setNivelEspecificidade(int nivelEspecificidade) {
 	this.nivelEspecificidade = nivelEspecificidade;
+}
+
+
+public HashMap<Integer, RecursoEstilo> getMapLblRecurso() {
+	return mapLblRecurso;
+}
+
+public void setMapLblRecurso(HashMap<Integer, RecursoEstilo> mapLblRecurso) {
+	this.mapLblRecurso = mapLblRecurso;
 }
 
 

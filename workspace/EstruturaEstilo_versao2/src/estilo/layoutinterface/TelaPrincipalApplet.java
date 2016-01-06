@@ -11,6 +11,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Set;
 
 import javax.swing.JApplet;
 import javax.swing.JButton;
@@ -28,6 +30,7 @@ import javax.swing.tree.TreePath;
 import estilo.estrutura.Estilo;
 import estilo.estrutura.EstilosKB;
 import estilo.estrutura.EtapaConteudo;
+import estilo.estrutura.RecursoEstilo;
 import estilo.estrutura.SubEtapaConteudo;
 import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
 import estilo.util.Constantes;
@@ -76,6 +79,7 @@ public class TelaPrincipalApplet extends JApplet {
 	private MostrarRecurso lblRecurso13;
 	private MostrarRecurso lblRecurso14;
 	private MostrarRecurso lblRecurso15;
+	private ArrayList<MostrarRecurso> arrayMostrarRecurso;
 
 	private JLabel lblEspecificidade;
 	private JLabel lblInformarQuantidadeDe;
@@ -249,65 +253,82 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		scrollPaneAreaConteudo.setViewportView(panelAreaConteudo);
 		
+		arrayMostrarRecurso = new ArrayList<MostrarRecurso>();
+		
 		lblRecurso1 = new MostrarRecurso("recurso");
 		lblRecurso1.setBounds(10, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso1);
+		arrayMostrarRecurso.add(lblRecurso1);
 		
 		lblRecurso2 = new MostrarRecurso("recurso");
 		lblRecurso2.setBounds(113, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso2);
+		arrayMostrarRecurso.add(lblRecurso2);
 		
 		lblRecurso3 = new MostrarRecurso("recurso");
 		lblRecurso3.setBounds(223, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso3);
+		arrayMostrarRecurso.add(lblRecurso3);
 		
 		lblRecurso4 = new MostrarRecurso("recurso");
 		lblRecurso4.setBounds(333, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso4);
+		arrayMostrarRecurso.add(lblRecurso4);
 		
 		lblRecurso5 = new MostrarRecurso("recurso");
 		lblRecurso5.setBounds(443, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso5);
+		arrayMostrarRecurso.add(lblRecurso5);
 		
 		lblRecurso6 = new MostrarRecurso("recurso");
 		lblRecurso6.setBounds(10, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso6);
+		arrayMostrarRecurso.add(lblRecurso6);
 		
 		lblRecurso7 = new MostrarRecurso("recurso");
 		lblRecurso7.setBounds(113, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso7);
+		arrayMostrarRecurso.add(lblRecurso7);
 		
 		lblRecurso8 = new MostrarRecurso("recurso");
 		lblRecurso8.setBounds(223, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso8);
+		arrayMostrarRecurso.add(lblRecurso8);
 		
 		lblRecurso9 = new MostrarRecurso("recurso");
 		lblRecurso9.setBounds(333, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso9);
+		arrayMostrarRecurso.add(lblRecurso9);
 		
 		lblRecurso10 = new MostrarRecurso("recurso");
 		lblRecurso10.setBounds(443, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso10);
+		arrayMostrarRecurso.add(lblRecurso10);
 		
 		lblRecurso11 = new MostrarRecurso("recurso");
 		lblRecurso11.setBounds(10, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso11);
+		arrayMostrarRecurso.add(lblRecurso11);
 		
 		lblRecurso12 = new MostrarRecurso("recurso");
 		lblRecurso12.setBounds(113, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso12);
+		arrayMostrarRecurso.add(lblRecurso12);
 		
 		lblRecurso13 = new MostrarRecurso("recurso");
 		lblRecurso13.setBounds(223, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso13);
+		arrayMostrarRecurso.add(lblRecurso13);
 		
 		lblRecurso14 = new MostrarRecurso("recurso");
 		lblRecurso14.setBounds(333, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso14);
+		arrayMostrarRecurso.add(lblRecurso14);
 		
 		lblRecurso15 = new MostrarRecurso("recurso");
 		lblRecurso15.setBounds(443, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso15);
+		arrayMostrarRecurso.add(lblRecurso15);
 		
 		arranjarLabels();
 		
@@ -364,6 +385,8 @@ public class TelaPrincipalApplet extends JApplet {
 		controlarNavegacao(e);
 
 		atribuirNiveis(e);
+		
+		informarRecursos(e);
 		exibirRecursos(e);
 		
 		
@@ -416,9 +439,29 @@ public class TelaPrincipalApplet extends JApplet {
 	}
 
 
-	private void exibirRecursos(Estilo e) {
-		// TODO Auto-generated method stub
-		
+	private void informarRecursos(Estilo e){
+		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
+			for (SubEtapaConteudo subEtapa: etapa.getSubEtapas()){
+				Random r = new Random();
+				int i = r.nextInt(Constantes.MAX_RECURSOS_TELA) + 1; // número aleatório de recursos a serem exibidos na subetapa
+				subEtapa.setMapLblRecurso(new HashMap<Integer, RecursoEstilo>());
+				for (int j = 0; j < i; j++) {
+					int indiceRecurso = r.nextInt(e.getRecursos().size());
+					int indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
+					while (subEtapa.getMapLblRecurso().containsKey(indiceMostrarRecurso))
+							indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
+					subEtapa.getMapLblRecurso().put(indiceMostrarRecurso, e.getRecursos().get(indiceRecurso));
+				}
+			}
+		}
+				
+	}
+	private void exibirRecursos() {
+		Set<Integer> lbls = subEtapaCorrente.getMapLblRecurso().keySet();
+		for (Integer i : lbls){
+			arrayMostrarRecurso.get(i);
+			parei aqui
+		}
 	}
 
 	private void controlarNavegacao(Estilo e) {
