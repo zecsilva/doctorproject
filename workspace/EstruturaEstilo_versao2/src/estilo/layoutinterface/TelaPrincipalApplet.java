@@ -507,6 +507,7 @@ public class TelaPrincipalApplet extends JApplet {
 				btnVoltar.setEnabled(false);
 				btnAvancar.setEnabled(false);
 				btnUltimo.setEnabled(false);
+				btnOk.setEnabled(true);
 			}else if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(e.getOrdemComposicao().getOrdem().size()-1)) &&
 					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1))){ // se etapa e subetapa últimas 
 				btnPrimeiro.setEnabled(true);
