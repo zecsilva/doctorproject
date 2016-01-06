@@ -103,11 +103,11 @@ public class TelaPrincipalApplet extends JApplet {
 		panelEstilo.setToolTipText("Teste de Estilos");
 		tabbedPane.addTab("Informar Estilo", null, panelEstilo, null);
 		
-		JPanel panelRecurso = new JPanel();
+		/*JPanel panelRecurso = new JPanel();
 		panelRecurso.setLayout(null);
 		panelRecurso.setToolTipText("Teste de Recursos");
 		tabbedPane.addTab("Informar Recursos", null, panelRecurso, null);
-		
+		*/
 		txtNomeEstilo = new JTextField();
 		txtNomeEstilo.addFocusListener(new FocusAdapter() {
 			@Override
@@ -151,12 +151,12 @@ public class TelaPrincipalApplet extends JApplet {
 
 		scrollPane.setViewportView(txtEstilo);
 		
-		lblInformarQuantidadeDe = new JLabel("Informar quantidade de sub-etapas:");
-		lblInformarQuantidadeDe.setBounds(193, 329, 228, 14);
+		lblInformarQuantidadeDe = new JLabel("Informar quantidade de sub-etapas (padrão "+Constantes.QTDE_SUBETAPAS_PADRAO+ ") :");
+		lblInformarQuantidadeDe.setBounds(193, 329, 278, 14);
 		panelEstilo.add(lblInformarQuantidadeDe);
 		
-		lblInformarTotalDe = new JLabel("Informar total de n\u00EDveis (<= qtde subetapas):");
-		lblInformarTotalDe.setBounds(192, 354, 269, 14);
+		lblInformarTotalDe = new JLabel("Informar total de n\u00EDveis (>= qtde subetapas; padrão "+Constantes.TOTAL_NIVEIS_PADRAO+"):");
+		lblInformarTotalDe.setBounds(192, 354, 309, 14);
 		panelEstilo.add(lblInformarTotalDe);
 		
 		txtQtdeSubetapas = new JTextField();
@@ -387,7 +387,7 @@ public class TelaPrincipalApplet extends JApplet {
 		atribuirNiveis(e);
 		
 		informarRecursos(e);
-		exibirRecursos(e);
+		exibirRecursos();
 		
 		
 	}
@@ -404,6 +404,8 @@ public class TelaPrincipalApplet extends JApplet {
 			} catch (NumberFormatException ne) {
 				totalNiveis = Constantes.TOTAL_NIVEIS_PADRAO;
 			}
+			
+			if (totalNiveis < qtdeSubetapas) totalNiveis = qtdeSubetapas;
 	
 		
 	}
@@ -456,11 +458,21 @@ public class TelaPrincipalApplet extends JApplet {
 		}
 				
 	}
+	
 	private void exibirRecursos() {
-		Set<Integer> lbls = subEtapaCorrente.getMapLblRecurso().keySet();
-		for (Integer i : lbls){
-			arrayMostrarRecurso.get(i);
-			parei aqui
+		
+		for (MostrarRecurso l : arrayMostrarRecurso){
+			l.setIcon(null);
+		}
+		
+		if (subEtapaCorrente.getMapLblRecurso() != null){
+			
+			Set<Integer> lbls = subEtapaCorrente.getMapLblRecurso().keySet();
+			for (Integer i : lbls){
+				MostrarRecurso mR = arrayMostrarRecurso.get(i);
+				mR.setIcon(subEtapaCorrente.getMapLblRecurso().get(i).getImagem());
+				
+			}
 		}
 	}
 
@@ -549,6 +561,8 @@ public class TelaPrincipalApplet extends JApplet {
 		//treeMapaConteudo.requestFocusInWindow();
 
 		txtTesteFormaExploracao.setText(subEtapaCorrente.toString());
+		
+		exibirRecursos();
 
 	}
 
