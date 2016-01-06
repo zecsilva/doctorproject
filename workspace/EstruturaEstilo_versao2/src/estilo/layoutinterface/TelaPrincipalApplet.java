@@ -90,12 +90,14 @@ public class TelaPrincipalApplet extends JApplet {
 	private int qtdeSubetapas;
 
 	private int totalNiveis;
+	private JTextField txtMaxRecursos;
+	private int maxRecursos;
 	
 	public TelaPrincipalApplet() {
 		getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 843, 558);
+		tabbedPane.setBounds(0, 0, 1125, 755);
 		getContentPane().add(tabbedPane);
 		
 		JPanel panelEstilo = new JPanel();
@@ -116,7 +118,7 @@ public class TelaPrincipalApplet extends JApplet {
 		});
 		txtNomeEstilo.setForeground(Color.BLACK);
 		txtNomeEstilo.setColumns(10);
-		txtNomeEstilo.setBounds(28, 72, 131, 20);
+		txtNomeEstilo.setBounds(30, 220, 131, 20);
 		panelEstilo.add(txtNomeEstilo);
 		
 		JButton button = new JButton("Retornar Estilo");
@@ -130,16 +132,16 @@ public class TelaPrincipalApplet extends JApplet {
 				exibirEstilo(estilo);
 			}
 		});
-		button.setBounds(28, 116, 131, 23);
+		button.setBounds(30, 264, 131, 23);
 		panelEstilo.add(button);
 		
 		label = new JLabel("Informe o Estilo:");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label.setBounds(28, 47, 131, 14);
+		label.setBounds(30, 195, 131, 14);
 		panelEstilo.add(label);
 		
 		scrollPane = new JScrollPane((Component) null);
-		scrollPane.setBounds(187, 42, 469, 250);
+		scrollPane.setBounds(189, 190, 469, 250);
 		panelEstilo.add(scrollPane);
 		
 		txtEstilo = new JTextArea();
@@ -152,22 +154,31 @@ public class TelaPrincipalApplet extends JApplet {
 		scrollPane.setViewportView(txtEstilo);
 		
 		lblInformarQuantidadeDe = new JLabel("Informar quantidade de sub-etapas (padrão "+Constantes.QTDE_SUBETAPAS_PADRAO+ ") :");
-		lblInformarQuantidadeDe.setBounds(193, 329, 278, 14);
+		lblInformarQuantidadeDe.setBounds(30, 35, 278, 14);
 		panelEstilo.add(lblInformarQuantidadeDe);
 		
 		lblInformarTotalDe = new JLabel("Informar total de n\u00EDveis (>= qtde subetapas; padrão "+Constantes.TOTAL_NIVEIS_PADRAO+"):");
-		lblInformarTotalDe.setBounds(192, 354, 309, 14);
+		lblInformarTotalDe.setBounds(30, 60, 309, 14);
 		panelEstilo.add(lblInformarTotalDe);
 		
 		txtQtdeSubetapas = new JTextField();
-		txtQtdeSubetapas.setBounds(522, 326, 86, 20);
+		txtQtdeSubetapas.setBounds(365, 32, 86, 20);
 		panelEstilo.add(txtQtdeSubetapas);
 		txtQtdeSubetapas.setColumns(10);
 		
 		txtTotalNiveis = new JTextField();
-		txtTotalNiveis.setBounds(522, 351, 86, 20);
+		txtTotalNiveis.setBounds(365, 57, 86, 20);
 		panelEstilo.add(txtTotalNiveis);
 		txtTotalNiveis.setColumns(10);
+		
+		JLabel lblInformarMximoDe = new JLabel("Informar m\u00E1ximo de recursos na tela (padr\u00E3o "+Constantes.MAX_RECURSOS_TELA+"):");
+		lblInformarMximoDe.setBounds(30, 101, 278, 14);
+		panelEstilo.add(lblInformarMximoDe);
+		
+		txtMaxRecursos = new JTextField();
+		txtMaxRecursos.setBounds(365, 98, 86, 20);
+		panelEstilo.add(txtMaxRecursos);
+		txtMaxRecursos.setColumns(10);
 		
 		panelLayout = new JPanel();
 		tabbedPane.addTab("Exibir Estilo", null, panelLayout, null);
@@ -404,6 +415,11 @@ public class TelaPrincipalApplet extends JApplet {
 			} catch (NumberFormatException ne) {
 				totalNiveis = Constantes.TOTAL_NIVEIS_PADRAO;
 			}
+			try{
+			maxRecursos = Integer.parseInt(txtMaxRecursos.getText());	
+			} catch (NumberFormatException ne) {
+				maxRecursos = Constantes.MAX_RECURSOS_TELA;
+			}
 			
 			if (totalNiveis < qtdeSubetapas) totalNiveis = qtdeSubetapas;
 	
@@ -445,7 +461,7 @@ public class TelaPrincipalApplet extends JApplet {
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			for (SubEtapaConteudo subEtapa: etapa.getSubEtapas()){
 				Random r = new Random();
-				int i = r.nextInt(Constantes.MAX_RECURSOS_TELA) + 1; // número aleatório de recursos a serem exibidos na subetapa
+				int i = r.nextInt(maxRecursos) + 1; // número aleatório de recursos a serem exibidos na subetapa
 				subEtapa.setMapLblRecurso(new HashMap<Integer, RecursoEstilo>());
 				for (int j = 0; j < i; j++) {
 					int indiceRecurso = r.nextInt(e.getRecursos().size());
@@ -507,9 +523,11 @@ public class TelaPrincipalApplet extends JApplet {
 			//TreePath tp = treeMapaConteudo.getPathForRow(indiceEtapaConteudoCorrente);
 			
 			exibirMapaConteudo(e, etapaConteudoCorrente);
+			
 		}
 		
 		else if (e.getFormaExploracao().getNomeForma().equalsIgnoreCase("Rede")){
+			
 			btnOk.setEnabled(false);
 			if (etapaConteudoCorrente.equals(e.getOrdemComposicao().getOrdem().get(0)) &&
 					subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(0))){ // se etapa corrente é a primeira
@@ -566,7 +584,8 @@ public class TelaPrincipalApplet extends JApplet {
 
 	}
 
-	private void exibirMapaConteudo(Estilo e, EtapaConteudo etapaAtual) {
+	private void exibirMapaConteudo(Estilo e, EtapaConteudo etapaAtual) { // para forma de exploração linear
+		//System.out.println("Ativou primeiro exibirMapaConteudo");
 		boolean expande = true;
 		mapEtapa = new HashMap<DefaultMutableTreeNode, EtapaConteudo>();
 		mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
@@ -574,16 +593,17 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		for (EtapaConteudo etapa : e.getOrdemComposicao().getOrdem()){
 			DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(etapa.toString());
-			etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
+			//etapa.setSubEtapas(new ArrayList<SubEtapaConteudo>());
 			//bloco de teste
 				for (int i = 1; i <= qtdeSubetapas; i++){
 				DefaultMutableTreeNode subNodo = new DefaultMutableTreeNode(etapa.toString() + " Teste " + i);
 					if (expande == true)
 						nodo.add(subNodo);
-					SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
-					etapa.getSubEtapas().add(s);
-					mapSubEtapa.put(subNodo, s);
-					s.setNodo(subNodo);
+					//SubEtapaConteudo s = new SubEtapaConteudo(etapa.toString() + " Teste " + i, etapa);
+					//etapa.getSubEtapas().add(s);
+					//etapa.getSubEtapas().get(i);
+					mapSubEtapa.put(subNodo, etapa.getSubEtapas().get(i-1));
+					etapa.getSubEtapas().get(i-1).setNodo(subNodo);
 				}
 				mapEtapa.put(nodo, etapa);
 				//subEtapaCorrente = etapaAtual.getSubEtapas().get(0);
@@ -600,7 +620,7 @@ public class TelaPrincipalApplet extends JApplet {
 	}
 
 	private void exibirMapaConteudo(Estilo e) {
-		
+		//System.out.println("Ativou segundo exibirMapaConteudo");
 		mapEtapa = new HashMap<DefaultMutableTreeNode, EtapaConteudo>();
 		mapSubEtapa = new HashMap<DefaultMutableTreeNode, SubEtapaConteudo>();
 		DefaultMutableTreeNode t1 = new DefaultMutableTreeNode("Estilo : " + e.getEstiloNome());
