@@ -266,77 +266,77 @@ public class TelaPrincipalApplet extends JApplet {
 		
 		arrayMostrarRecurso = new ArrayList<MostrarRecurso>();
 		
-		lblRecurso1 = new MostrarRecurso("recurso");
+		lblRecurso1 = new MostrarRecurso(0);
 		lblRecurso1.setBounds(10, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso1);
 		arrayMostrarRecurso.add(lblRecurso1);
 		
-		lblRecurso2 = new MostrarRecurso("recurso");
+		lblRecurso2 = new MostrarRecurso(1);
 		lblRecurso2.setBounds(113, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso2);
 		arrayMostrarRecurso.add(lblRecurso2);
 		
-		lblRecurso3 = new MostrarRecurso("recurso");
+		lblRecurso3 = new MostrarRecurso(2);
 		lblRecurso3.setBounds(223, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso3);
 		arrayMostrarRecurso.add(lblRecurso3);
 		
-		lblRecurso4 = new MostrarRecurso("recurso");
+		lblRecurso4 = new MostrarRecurso(3);
 		lblRecurso4.setBounds(333, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso4);
 		arrayMostrarRecurso.add(lblRecurso4);
 		
-		lblRecurso5 = new MostrarRecurso("recurso");
+		lblRecurso5 = new MostrarRecurso(4);
 		lblRecurso5.setBounds(443, 11, 100, 100);
 		panelAreaConteudo.add(lblRecurso5);
 		arrayMostrarRecurso.add(lblRecurso5);
 		
-		lblRecurso6 = new MostrarRecurso("recurso");
+		lblRecurso6 = new MostrarRecurso(5);
 		lblRecurso6.setBounds(10, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso6);
 		arrayMostrarRecurso.add(lblRecurso6);
 		
-		lblRecurso7 = new MostrarRecurso("recurso");
+		lblRecurso7 = new MostrarRecurso(6);
 		lblRecurso7.setBounds(113, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso7);
 		arrayMostrarRecurso.add(lblRecurso7);
 		
-		lblRecurso8 = new MostrarRecurso("recurso");
+		lblRecurso8 = new MostrarRecurso(7);
 		lblRecurso8.setBounds(223, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso8);
 		arrayMostrarRecurso.add(lblRecurso8);
 		
-		lblRecurso9 = new MostrarRecurso("recurso");
+		lblRecurso9 = new MostrarRecurso(8);
 		lblRecurso9.setBounds(333, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso9);
 		arrayMostrarRecurso.add(lblRecurso9);
 		
-		lblRecurso10 = new MostrarRecurso("recurso");
+		lblRecurso10 = new MostrarRecurso(9);
 		lblRecurso10.setBounds(443, 122, 100, 100);
 		panelAreaConteudo.add(lblRecurso10);
 		arrayMostrarRecurso.add(lblRecurso10);
 		
-		lblRecurso11 = new MostrarRecurso("recurso");
+		lblRecurso11 = new MostrarRecurso(10);
 		lblRecurso11.setBounds(10, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso11);
 		arrayMostrarRecurso.add(lblRecurso11);
 		
-		lblRecurso12 = new MostrarRecurso("recurso");
+		lblRecurso12 = new MostrarRecurso(11);
 		lblRecurso12.setBounds(113, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso12);
 		arrayMostrarRecurso.add(lblRecurso12);
 		
-		lblRecurso13 = new MostrarRecurso("recurso");
+		lblRecurso13 = new MostrarRecurso(12);
 		lblRecurso13.setBounds(223, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso13);
 		arrayMostrarRecurso.add(lblRecurso13);
 		
-		lblRecurso14 = new MostrarRecurso("recurso");
+		lblRecurso14 = new MostrarRecurso(13);
 		lblRecurso14.setBounds(333, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso14);
 		arrayMostrarRecurso.add(lblRecurso14);
 		
-		lblRecurso15 = new MostrarRecurso("recurso");
+		lblRecurso15 = new MostrarRecurso(14);
 		lblRecurso15.setBounds(443, 247, 100, 100);
 		panelAreaConteudo.add(lblRecurso15);
 		arrayMostrarRecurso.add(lblRecurso15);
@@ -463,13 +463,25 @@ public class TelaPrincipalApplet extends JApplet {
 				Random r = new Random();
 				int i = r.nextInt(maxRecursos) + 1; // número aleatório de recursos a serem exibidos na subetapa
 				subEtapa.setMapLblRecurso(new HashMap<Integer, RecursoEstilo>());
+				
+				int indiceRecursoImagem = e.getIndiceRecursoAleatorio(Constantes.FORMATO_RECURSO_IMAGEM);
+				int indiceRecursoTexto = e.getIndiceRecursoAleatorio(Constantes.FORMATO_RECURSO_TEXTO);
+				
+				int indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
+				int indiceMostrarRecursoVizinho = arrayMostrarRecurso.get(indiceMostrarRecurso).getVizinhoAleatorioDisponivel().getIndice();
+
 				for (int j = 0; j < i; j++) {
 					int indiceRecurso = r.nextInt(e.getRecursos().size());
-					int indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
+					indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
 					while (subEtapa.getMapLblRecurso().containsKey(indiceMostrarRecurso))
 							indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
 					subEtapa.getMapLblRecurso().put(indiceMostrarRecurso, e.getRecursos().get(indiceRecurso));
 				}
+				//princípio
+				if (subEtapa.hasFormato(Constantes.FORMATO_RECURSO_IMAGEM)){
+					
+				}
+				
 			}
 		}
 				

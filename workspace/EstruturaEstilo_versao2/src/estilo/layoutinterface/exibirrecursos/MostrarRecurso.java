@@ -1,7 +1,11 @@
 package estilo.layoutinterface.exibirrecursos;
 
+import java.util.Random;
+
 import javax.swing.Icon;
 import javax.swing.JLabel;
+
+import estilo.util.Constantes;
 
 public class MostrarRecurso extends JLabel {
 
@@ -15,9 +19,15 @@ public class MostrarRecurso extends JLabel {
 	private MostrarRecurso direita;
 	private MostrarRecurso esquerda;
 	
+	private int indice;
+	
 	public MostrarRecurso() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public MostrarRecurso(int indice){
+		super();
+		this.indice = indice;
 	}
 
 	public MostrarRecurso(Icon image, int horizontalAlignment) {
@@ -43,6 +53,31 @@ public class MostrarRecurso extends JLabel {
 	public MostrarRecurso(String text) {
 		super(text);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public MostrarRecurso getVizinhoAleatorioDisponivel(){
+		MostrarRecurso mR = null;
+		int i = -1;
+		Random r = new Random();
+
+		while (mR == null || mR.getIcon() != null){
+			i = r.nextInt(4);			
+			switch (i){
+				case 0:
+					mR = this.getCima();
+					break;
+				case 1:
+					mR = this.getBaixo();
+					break;
+				case 2:
+					mR = this.getDireita();
+					break;
+				case 3:
+					mR = this.getEsquerda();
+					break;
+			}
+		}
+		return mR;
 	}
 
 	public MostrarRecurso getCima() {
@@ -75,6 +110,14 @@ public class MostrarRecurso extends JLabel {
 
 	public void setEsquerda(MostrarRecurso esquerda) {
 		this.esquerda = esquerda;
+	}
+
+	public int getIndice() {
+		return indice;
+	}
+
+	public void setIndice(int indice) {
+		this.indice = indice;
 	}
 
 	

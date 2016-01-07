@@ -18,4 +18,6 @@ public class Constantes {
 	public static final int MAX_RECURSOS_TELA = 5;
 	public static final int QTDE_MOSTRAR_RECURSO = 15;
 	
+	public static final String FORMATO_RECURSO_IMAGEM = "Imagem";
+	public static final String FORMATO_RECURSO_TEXTO = "Texto";
 }

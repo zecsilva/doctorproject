@@ -1,6 +1,7 @@
 package estilo.estrutura;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @model
@@ -38,6 +39,17 @@ public class Estilo
 		recursos = new ArrayList<RecursoEstilo>();
 	}
     
+	public Integer getIndiceRecursoAleatorio(String formato){
+		int indice = -1;
+		while (indice == -1){
+			Random r = new Random();
+			int i = r.nextInt(this.getRecursos().size());
+			if (this.getRecursos().get(i).getFormatoRecurso().equals(formato))
+				indice = i;
+			
+		}
+		return indice;
+	}
 	
   
 	/*public String toString() {

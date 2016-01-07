@@ -1,10 +1,10 @@
 package estilo.estrutura;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-
-import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
 
 /**
  * @model
@@ -30,6 +30,31 @@ public SubEtapaConteudo(String nome, EtapaConteudo etapaConteudo) {
 	this.nome = nome;
 	this.etapaConteudo = etapaConteudo;
 }
+
+public boolean hasFormato(String formato){
+	Set<Integer> lbls = this.getMapLblRecurso().keySet();
+	for (Integer i : lbls){
+		RecursoEstilo r = this.getMapLblRecurso().get(i);
+		if (r.getFormatoRecurso().equalsIgnoreCase(formato))
+			return true;
+	}
+	return false;
+
+}
+
+public ArrayList<Integer> getIndicesFormato(String formato){
+	Set<Integer> lbls = this.getMapLblRecurso().keySet();
+	ArrayList<Integer> arrayInt = new ArrayList<Integer>();
+	for (Integer i : lbls){
+		RecursoEstilo r = this.getMapLblRecurso().get(i);
+		if (r.getFormatoRecurso().equalsIgnoreCase(formato))
+			arrayInt.add(i);
+	}
+	return arrayInt;
+
+}
+
+
 
 public String getNome() {
 	return nome;
