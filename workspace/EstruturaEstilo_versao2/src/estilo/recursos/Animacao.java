@@ -1,9 +1,5 @@
 package estilo.recursos;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import estilo.estrutura.RecursoEstilo;
@@ -14,7 +10,7 @@ public class Animacao extends RecursoEstilo {
 		super();
 		setFormatoRecurso("Imagem");
 		setNomeRecursoEstilo("Animacao");
-		//System.out.println(this.getClass().getSimpleName());
+		//System.out.println(getClass().getResource(this.getClass().getSimpleName()));
 		setImagem(new ImageIcon(getClass().getResource(this.getClass().getSimpleName()+".png")));
 		//setImagem(ImageIO.read(new File("img\\" + this.getClass().getName() + ".png")));
 	}

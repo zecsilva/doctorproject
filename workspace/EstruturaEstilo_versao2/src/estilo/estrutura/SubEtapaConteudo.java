@@ -76,7 +76,6 @@ public ArrayList<Integer> getIndicesFormato(String formato){
 }
 
 
-
 public String getNome() {
 	return nome;
 }
