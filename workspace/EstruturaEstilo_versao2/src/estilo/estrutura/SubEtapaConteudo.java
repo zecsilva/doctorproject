@@ -2,9 +2,12 @@ package estilo.estrutura;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Set;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import estilo.recursos.Animacao;
 
 /**
  * @model
@@ -40,6 +43,24 @@ public boolean hasFormato(String formato){
 	}
 	return false;
 
+}
+
+public Integer hasAnimacao(){
+	ArrayList<Integer> indices = new ArrayList<Integer>();
+	Set<Integer> lbls = this.getMapLblRecurso().keySet();
+	
+	for (Integer i : lbls){
+		RecursoEstilo r = this.getMapLblRecurso().get(i);
+		if (r instanceof Animacao)
+			indices.add(i);
+	}
+	
+	Random r = new Random();
+	if (!indices.isEmpty()){
+		int j = r.nextInt(indices.size());
+		return indices.get(j);
+	} else
+		return -1;
 }
 
 public ArrayList<Integer> getIndicesFormato(String formato){

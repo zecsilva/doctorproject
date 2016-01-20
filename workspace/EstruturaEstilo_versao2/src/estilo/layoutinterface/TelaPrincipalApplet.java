@@ -33,6 +33,7 @@ import estilo.estrutura.EtapaConteudo;
 import estilo.estrutura.RecursoEstilo;
 import estilo.estrutura.SubEtapaConteudo;
 import estilo.layoutinterface.exibirrecursos.MostrarRecurso;
+import estilo.recursos.Narracao;
 import estilo.util.Constantes;
 
 public class TelaPrincipalApplet extends JApplet {
@@ -463,23 +464,31 @@ public class TelaPrincipalApplet extends JApplet {
 				Random r = new Random();
 				int i = r.nextInt(maxRecursos) + 1; // número aleatório de recursos a serem exibidos na subetapa
 				subEtapa.setMapLblRecurso(new HashMap<Integer, RecursoEstilo>());
-				
+			
+				// princípio multimídia (pelo menos um formato de cada)
 				int indiceRecursoImagem = e.getIndiceRecursoAleatorio(Constantes.FORMATO_RECURSO_IMAGEM);
 				int indiceRecursoTexto = e.getIndiceRecursoAleatorio(Constantes.FORMATO_RECURSO_TEXTO);
 				
+				//princípio proximidade espacial
 				int indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
 				int indiceMostrarRecursoVizinho = arrayMostrarRecurso.get(indiceMostrarRecurso).getVizinhoAleatorioDisponivel().getIndice();
 
-				for (int j = 0; j < i; j++) {
+				subEtapa.getMapLblRecurso().put(indiceMostrarRecurso, e.getRecursos().get(indiceRecursoImagem));
+				subEtapa.getMapLblRecurso().put(indiceMostrarRecursoVizinho, e.getRecursos().get(indiceRecursoTexto));
+
+				for (int j = 0; j < i-2; j++) {
 					int indiceRecurso = r.nextInt(e.getRecursos().size());
 					indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
 					while (subEtapa.getMapLblRecurso().containsKey(indiceMostrarRecurso))
 							indiceMostrarRecurso = r.nextInt(Constantes.QTDE_MOSTRAR_RECURSO);
 					subEtapa.getMapLblRecurso().put(indiceMostrarRecurso, e.getRecursos().get(indiceRecurso));
 				}
-				//princípio
-				if (subEtapa.hasFormato(Constantes.FORMATO_RECURSO_IMAGEM)){
-					
+				
+				//princípio da modalidade
+				int indiceAnimacao = subEtapa.hasAnimacao(); 
+				if (indiceAnimacao != -1){
+					int indiceNarracao = arrayMostrarRecurso.get(indiceAnimacao).getVizinhoAleatorioDisponivel().getIndice();
+					subEtapa.getMapLblRecurso().put(indiceNarracao, new Narracao());
 				}
 				
 			}
