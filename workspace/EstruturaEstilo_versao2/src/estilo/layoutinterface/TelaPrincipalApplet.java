@@ -375,7 +375,14 @@ public class TelaPrincipalApplet extends JApplet {
 					btnVoltar.setEnabled(false);
 					btnAvancar.setEnabled(true);
 					btnUltimo.setEnabled(false);
-				} else {
+				} else if (etapaConteudoCorrente.equals(estilo.getOrdemComposicao().getOrdem().get(estilo.getOrdemComposicao().getOrdem().size()-1)) &&
+						subEtapaCorrente.equals(etapaConteudoCorrente.getSubEtapas().get(etapaConteudoCorrente.getSubEtapas().size()-1))){ // se etapa e subetapa últimas 
+					btnPrimeiro.setEnabled(true);
+					btnVoltar.setEnabled(true);
+					btnAvancar.setEnabled(false);
+					btnUltimo.setEnabled(true);	
+				}
+				else {
 					btnPrimeiro.setEnabled(true);
 					btnVoltar.setEnabled(true);
 					btnAvancar.setEnabled(true);
