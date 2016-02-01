@@ -451,7 +451,7 @@ public class TelaPrincipalApplet extends JApplet {
 			for (SubEtapaConteudo subEtapa: etapa.getSubEtapas()){
 				subEtapa.setNivelEspecificidade(nivel);
 				if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_1) &&
-						contador % modulo == 0 && nivel <= totalNiveis)
+						contador % modulo == 0 && nivel < totalNiveis)
 					nivel ++;
 				if (e.getOrdemDetalhamento().getNomeOrdemDetalhamento().equalsIgnoreCase(Constantes.ORDEM_DETALHAMENTO_2) &&
 						contador % modulo == 0 && nivel > 1)
