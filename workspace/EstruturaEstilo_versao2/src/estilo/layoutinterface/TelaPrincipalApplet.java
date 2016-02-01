@@ -422,7 +422,7 @@ public class TelaPrincipalApplet extends JApplet {
 				maxRecursos = Constantes.MAX_RECURSOS_TELA;
 			}
 			
-			if (totalNiveis < qtdeSubetapas) totalNiveis = qtdeSubetapas;
+			//if (totalNiveis < qtdeSubetapas) totalNiveis = qtdeSubetapas;
 	
 		
 	}
