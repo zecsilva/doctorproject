@@ -170,8 +170,8 @@ extends jeops.AbstractRuleBase {
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
-	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
 	  recursos.add(new Video());
 	  recursos.add(new Diagrama());
@@ -567,7 +567,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Tabela());
 	  recursos.add(new Demonstracao());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
-	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
+	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
 	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
@@ -756,7 +756,7 @@ extends jeops.AbstractRuleBase {
 	  recursos.add(new Exemplo());
 	  recursos.add(new Foto());
 	  estilo_estrutura_Estilo_1.setRecursos(recursos);
-	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Linear"));
+	  estilo_estrutura_Estilo_1.setFormaExploracao(new FormaExploracao("Rede"));
 	  estilo_estrutura_Estilo_1.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  estilo_estrutura_Estilo_1.setOrdemComposicao(ordemComposicao);
 	  modified(estilo_estrutura_Estilo_1);
@@ -929,8 +929,8 @@ extends jeops.AbstractRuleBase {
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
-	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
 	  recursos.add(new Narracao());
 	  recursos.add(new Palestra());
@@ -1856,7 +1856,7 @@ extends jeops.AbstractRuleBase {
 /**
  * Knowledge base created by JEOPS from file EstilosKB.rules
  *
- * @version 17/12/2015
+ * @version 28/07/2016
  */
 public class EstilosKB extends jeops.AbstractKnowledgeBase {
 

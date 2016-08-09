@@ -18,8 +18,8 @@ public ruleBase EstilosKB
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
-	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
 	  recursos.add(new Video());
 	  recursos.add(new Diagrama());
@@ -107,7 +107,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Tabela());
 	  recursos.add(new Demonstracao());
 	  e.setRecursos(recursos);
-	  e.setFormaExploracao(new FormaExploracao("Rede"));
+	  e.setFormaExploracao(new FormaExploracao("Linear"));
 	  e.setOrdemDetalhamento(new OrdemDetalhamento("Específico para geral"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
@@ -142,7 +142,7 @@ public ruleBase EstilosKB
 	  recursos.add(new Exemplo());
 	  recursos.add(new Foto());
 	  e.setRecursos(recursos);
-	  e.setFormaExploracao(new FormaExploracao("Linear"));
+	  e.setFormaExploracao(new FormaExploracao("Rede"));
 	  e.setOrdemDetalhamento(new OrdemDetalhamento("Geral para Específico"));
 	  e.setOrdemComposicao(ordemComposicao);
 	  modified(e);
@@ -161,8 +161,8 @@ public ruleBase EstilosKB
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Introdução"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Desenvolvimento"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Atividade"));
-	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ordemComposicao.getOrdem().add(new EtapaConteudo("Resumo"));
+	  ordemComposicao.getOrdem().add(new EtapaConteudo("Avaliação"));
 	  ArrayList<RecursoEstilo> recursos = new ArrayList<RecursoEstilo>();
 	  recursos.add(new Narracao());
 	  recursos.add(new Palestra());

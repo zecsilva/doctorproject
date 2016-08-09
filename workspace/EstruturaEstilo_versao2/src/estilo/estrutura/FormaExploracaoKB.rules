@@ -14,7 +14,7 @@ public ruleBase FormaExploracaoKB
   	conditions
   		formaExploracao.equals(new FormaExploracao("Rede"));
   	actions
-  		estilos.addItens("Visual,Global,Sensorial,Ativo");
+  		estilos.addItens("Visual,Global,Intuitivo,Ativo");
   		modified(estilos);
   		flush();		
   }
@@ -27,7 +27,7 @@ public ruleBase FormaExploracaoKB
   	conditions
   		formaExploracao.equals(new FormaExploracao("Linear"));
   	actions
-  		estilos.addItens("Verbal,Sequencial,Intuitivo,Reflexivo");
+  		estilos.addItens("Verbal,Sequencial,Sensorial,Reflexivo");
   		modified(estilos);
   		flush();		
   }   

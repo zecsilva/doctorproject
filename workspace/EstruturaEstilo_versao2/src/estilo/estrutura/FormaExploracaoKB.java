@@ -176,7 +176,7 @@ extends jeops.AbstractRuleBase {
      * Executes the action part of the rule rede
      */
     private void rede() {
-  		estilo_estrutura_Estilos_1.addItens("Visual,Global,Sensorial,Ativo");
+  		estilo_estrutura_Estilos_1.addItens("Visual,Global,Intuitivo,Ativo");
   		modified(estilo_estrutura_Estilos_1);
   		flush();		
       }
@@ -353,7 +353,7 @@ extends jeops.AbstractRuleBase {
      * Executes the action part of the rule linear
      */
     private void linear() {
-  		estilo_estrutura_Estilos_1.addItens("Verbal,Sequencial,Intuitivo,Reflexivo");
+  		estilo_estrutura_Estilos_1.addItens("Verbal,Sequencial,Sensorial,Reflexivo");
   		modified(estilo_estrutura_Estilos_1);
   		flush();		
       }
@@ -607,7 +607,7 @@ extends jeops.AbstractRuleBase {
 /**
  * Knowledge base created by JEOPS from file FormaExploracaoKB.rules
  *
- * @version 21/10/2015
+ * @version 28/07/2016
  */
 public class FormaExploracaoKB extends jeops.AbstractKnowledgeBase {
 

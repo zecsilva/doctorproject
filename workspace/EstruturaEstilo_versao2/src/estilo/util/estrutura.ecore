@@ -19,6 +19,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="OrdemComposicao">
     <eLiterals name="nomeOrdemComposicao"/>
     <eLiterals name="ordem" value="1"/>
+    <eLiterals/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OrdemDetalhamento">
     <eLiterals name="nomeOrdemDetalhamento"/>

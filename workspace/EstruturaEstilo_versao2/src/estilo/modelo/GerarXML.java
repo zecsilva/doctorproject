@@ -15,7 +15,7 @@ public class GerarXML {
 				new Dimensao("nome dimensão", "descrição dimensão"), 
 				new FormaDeteccao("descrição detecção", "nome detecção", "tipo detecção"), 
 				new InstrumentoInvestigacao("nome instrumento investigação", "descrição instrumento investigação"),
-				retornarEstilo("ativo"));
+				retornarEstilo("sequencial"));
 		XStream stream = new XStream(new DomDriver());
 		System.out.println(stream.toXML(modelo));
 	}

@@ -258,7 +258,7 @@ public class TelaPrincipalApplet extends JApplet {
 		panelLayout.add(scrollPaneAreaConteudo);
 		
 		panelAreaConteudo = new JPanel();
-		panelAreaConteudo.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.RED, Color.RED, Color.RED, Color.RED));
+		panelAreaConteudo.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.GRAY, Color.GRAY, Color.GRAY, Color.GRAY));
 		panelAreaConteudo.setBounds(157, 43, 671, 327);
 		//panelLayout.add(panelAreaConteudo);
 		panelAreaConteudo.setLayout(null);
